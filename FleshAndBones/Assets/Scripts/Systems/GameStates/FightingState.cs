@@ -1,6 +1,5 @@
 using App;
 using App.Systems.Wave;
-using App.World.Shop;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +18,6 @@ namespace App.Systems.GameStates
         private AudioClip fightingMusic;
         private AudioSource audioSource;
         private GameObject shop;
-        List<WeaponShopItem> weaponShops;
-        List<UpgradeShopItem> upgradeShops;
         public FightingState(GameStatesSystem gameStatesSystem, WaveSystem waveSystem, Light2D globalLight, AudioClip fightingMusic, AudioSource audioSource,GameObject shop)
         {
             this.gameStatesSystem = gameStatesSystem;
@@ -29,21 +26,12 @@ namespace App.Systems.GameStates
             this.fightingMusic = fightingMusic;
             this.audioSource = audioSource;
             this.shop = shop;
-            weaponShops = new List<WeaponShopItem>(shop.GetComponentsInChildren<WeaponShopItem>());
-            upgradeShops = new List<UpgradeShopItem>(shop.GetComponentsInChildren<UpgradeShopItem>());
         }
         public void Enter()
         {
             waveSystem.StartWave();
             gameStatesSystem.StartCoroutine(StartMusic());
-            foreach (var weaponShop in weaponShops)
-            {
-                weaponShop.SetRandomWeapon();
-            }
-            foreach (var upgradeShop in upgradeShops)
-            {
-                upgradeShop.SetRandomUpgrade();
-            }
+            
         }
         public void Exit()
         {

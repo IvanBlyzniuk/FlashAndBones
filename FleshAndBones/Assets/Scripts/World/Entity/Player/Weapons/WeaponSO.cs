@@ -11,11 +11,7 @@ namespace App.World.Entity.Player.Weapons
         public float bulletSpread;
         public int pearcingCount;
         public GameObject bullet;
-        public GameObject weaponPrefab;
-        public Sprite weaponSpriteForShop;
         public int bulletCount;
-        public int cost;
-        public string description;
         public AudioClip shootSound;
     }
 }

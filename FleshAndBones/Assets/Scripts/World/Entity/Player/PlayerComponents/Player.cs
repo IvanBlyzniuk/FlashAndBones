@@ -133,13 +133,13 @@ namespace App.World.Entity.Player.PlayerComponents
         {
             upgrade.Disable(this);
         }
-        public void MakeStepSound()
-        {
-            if(!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length)]);
-            }
-        }
+        //public void MakeStepSound()
+        //{
+        //    if(!audioSource.isPlaying)
+        //    {
+        //        audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length)]);
+        //    }
+        //}
     }
 }
 
