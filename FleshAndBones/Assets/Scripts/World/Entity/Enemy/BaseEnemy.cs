@@ -117,24 +117,24 @@ namespace App.World.Entity.Enemy
 
         private void DropMoney()
         {
-            if(Random.value <= enemyData.moneyDropChance)
-            {
-                int count = Random.Range(enemyData.minMoneyDrop,enemyData.maxMoneyDrop + 1);
-                for(int i=0;i<count;i++)
-                {
-                    GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
-                    money.GetComponent<MoneyDropItem>().Init(transform.position);
-                }
-            }
+            //if(Random.value <= enemyData.moneyDropChance)
+            //{
+            //    int count = Random.Range(enemyData.minMoneyDrop,enemyData.maxMoneyDrop + 1);
+            //    for(int i=0;i<count;i++)
+            //    {
+            //        GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
+            //        money.GetComponent<MoneyDropItem>().Init(transform.position);
+            //    }
+            //}
         }
         private void DropHealing()
         {
-            if (Random.value <= enemyData.healingDropChance)
-            {
-                GameObject healing = objectPool.GetObjectFromPool(enemyData.healingPrefab.PoolObjectType, enemyData.healingPrefab.gameObject, transform.position).GetGameObject();
-                healing.GetComponent<HealingDropItem>().Init(transform.position);
+            //if (Random.value <= enemyData.healingDropChance)
+            //{
+            //    GameObject healing = objectPool.GetObjectFromPool(enemyData.healingPrefab.PoolObjectType, enemyData.healingPrefab.gameObject, transform.position).GetGameObject();
+            //    healing.GetComponent<HealingDropItem>().Init(transform.position);
                
-            }
+            //}
         }
 
         public void GetFromPool(ObjectPool pool)

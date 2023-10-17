@@ -17,8 +17,11 @@ namespace App.World.Entity.Enemy.States
         {
             baseEnemy.Animator.SetBool("IsAttacking", true);
             baseEnemy.MyRigidbody.mass *= 1000;
-            int index = Random.Range(0, baseEnemy.EnemyData.attackSounds.Count);
-            baseEnemy.AudioSource.PlayOneShot(baseEnemy.EnemyData.attackSounds[index]);
+            if(baseEnemy.EnemyData.attackSounds.Count > 0)
+            {
+                int index = Random.Range(0, baseEnemy.EnemyData.attackSounds.Count);
+                baseEnemy.AudioSource.PlayOneShot(baseEnemy.EnemyData.attackSounds[index]);
+            }
             baseEnemy.StartCoroutine(Attack());
         }
 

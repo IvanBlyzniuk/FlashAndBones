@@ -29,17 +29,23 @@ namespace App.Systems.EnemySpawning
                 Debug.Log("Error, trying to create enemy, but gameobject doesn't contain BaseEnemy script");
                 return;
             }
-            Vector3 position = new Vector3();
-            position.x = Random.Range(bottomLeftBound.position.x, topRightBound.position.x);
-            position.y = Random.Range(bottomLeftBound.position.y, topRightBound.position.y);
-            position.z = 0;
+            
+            
+            float angle = Random.Range(0f, 360f);
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            float aspect = (float)Screen.width / Screen.height;
+            float worldHeight = Camera.main.orthographicSize * 2;
+            float worldWidth = worldHeight * aspect;
+            float distance = Mathf.Sqrt(worldHeight * worldHeight + worldWidth * worldWidth) / 2;
+            Vector3 position = rotation * Vector3.up * distance + enemyTarget.position;
+
             baseEnemy = objectPool.GetObjectFromPool(baseEnemy.PoolObjectType, enemy, position).GetGameObject().GetComponent<BaseEnemy>();
             if(baseEnemy == null)
             {
                 Debug.Log("Error, took enemy out of object pool, but didn't find BaseEnemy script on it");
                 return;
             }
-            baseEnemy.Init(position, enemyTarget,waveSystem,enemyHpMultiplier);
+            baseEnemy.Init(position, enemyTarget, waveSystem, enemyHpMultiplier);
         }
     }
 }

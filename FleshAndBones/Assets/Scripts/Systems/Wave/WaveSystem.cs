@@ -11,7 +11,6 @@ namespace App.Systems.Wave
     {
         private int waveNum = 1;
         private EnemySpawningSystem enemySpawningSystem;
-        private GameStatesSystem gameStatesSystem;
         private int enemiesAlive = 0;
         private int dangerLevelLeft;
         [SerializeField]
@@ -22,33 +21,33 @@ namespace App.Systems.Wave
 
         [SerializeField]
         private float enemyHpIncrease;
-        [SerializeField]
-        private float minTimeBetweenSubwaves;
-        [SerializeField]
-        private float maxTimeBetweenSubwaves;
-        [SerializeField]
-        private float subWaveDangerPercentage;
-        [SerializeField]
-        private float nextWaveDangerLevelMultiplier;
+        //[SerializeField]
+        //private float minTimeBetweenSubwaves;
+        //[SerializeField]
+        //private float maxTimeBetweenSubwaves;
+        //[SerializeField]
+        //private float subWaveDangerPercentage;
+        //[SerializeField]
+        //private float nextWaveDangerLevelMultiplier;
         [SerializeField]
         private List<BaseEnemy> enemies;
 
         public void StartWave()
         {
-            allowedEnemies = enemies.FindAll(e => e.EnemyData.firstSpawningWave <= waveNum);
-            currentTotalEnemyWeight = 0;
-            foreach(BaseEnemy enemy in allowedEnemies)
-            {
-                currentTotalEnemyWeight += enemyWeights[enemy];
-            }
-            StartCoroutine(Wave());
+            //allowedEnemies = enemies.FindAll(e => e.EnemyData.firstSpawningWave <= waveNum);
+            //currentTotalEnemyWeight = 0;
+            //foreach (BaseEnemy enemy in allowedEnemies)
+            //{
+            //    currentTotalEnemyWeight += enemyWeights[enemy];
+            //}
+            //StartCoroutine(Wave());
         }
 
-        public void Init(EnemySpawningSystem enemySpawningSystem, GameStatesSystem gameStatesSystem)
+        public void Init(EnemySpawningSystem enemySpawningSystem)
         {
             this.enemySpawningSystem = enemySpawningSystem;
-            this.gameStatesSystem = gameStatesSystem;
             CalculateEnemyWeights();
+            StartCoroutine(Wave());
         }
 
         private void CalculateEnemyWeights()
@@ -56,37 +55,46 @@ namespace App.Systems.Wave
             enemyWeights = new Dictionary<BaseEnemy, float>();
             foreach(BaseEnemy enemy in enemies)
             {
-                enemyWeights.Add(enemy, 1.0f / enemy.EnemyData.dangerLevel);
+                float weight = 1.0f / enemy.EnemyData.dangerLevel;
+                enemyWeights.Add(enemy, weight);
+                currentTotalEnemyWeight += weight;
             }
         }
 
         public IEnumerator Wave()
         {
-            dangerLevelLeft = totalDangerLevel;
-            while(dangerLevelLeft > 0)
+            //dangerLevelLeft = totalDangerLevel;
+            //while(dangerLevelLeft > 0)
+            //{
+            //    SpawnSubWave();
+            //    yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
+            //}
+            while(true) 
             {
-                SpawnSubWave();
-                yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
+                BaseEnemy randomEnemy = getRandomEnemy();
+                enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 /* + hp multiplier */);
+                yield return new WaitForSeconds(1);
             }
         }
 
-        private void SpawnSubWave()
-        {
-            int dangerDiff = (int)(totalDangerLevel * subWaveDangerPercentage);
-            int startingDangerLevel = dangerLevelLeft;
-            while(dangerLevelLeft > startingDangerLevel - dangerDiff)
-            {
-                BaseEnemy randomEnemy = getRandomEnemy();
-                enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + waveNum * enemyHpIncrease);
-                dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
-                enemiesAlive++;
-            }
-        }
+        //private void SpawnSubWave()
+        //{
+        //    int dangerDiff = (int)(totalDangerLevel * subWaveDangerPercentage);
+        //    int startingDangerLevel = dangerLevelLeft;
+        //    while(dangerLevelLeft > startingDangerLevel - dangerDiff)
+        //    {
+        //        BaseEnemy randomEnemy = getRandomEnemy();
+        //        enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + waveNum * enemyHpIncrease);
+        //        dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
+        //        enemiesAlive++;
+        //    }
+        //}
 
         private BaseEnemy getRandomEnemy()
         {
             float randomWeight = Random.value * currentTotalEnemyWeight;
-            foreach(BaseEnemy enemy in allowedEnemies)
+            //foreach(BaseEnemy enemy in allowedEnemies)
+            foreach (BaseEnemy enemy in enemies)
             {
                 if (enemyWeights[enemy] >= randomWeight)
                     return enemy;
@@ -95,25 +103,25 @@ namespace App.Systems.Wave
             return allowedEnemies[allowedEnemies.Count - 1];
         }
 
-        private void CalculateNextDangerLevel()
-        {
-            totalDangerLevel = (int)(totalDangerLevel * nextWaveDangerLevelMultiplier);
-        }
+        //private void CalculateNextDangerLevel()
+        //{
+        //    totalDangerLevel = (int)(totalDangerLevel * nextWaveDangerLevelMultiplier);
+        //}
 
         public void ReportKilled(string enemyType)
         {
-            enemiesAlive--;
-            if (dangerLevelLeft <= 0 && enemiesAlive <= 0)
-                EndWave();
+            //enemiesAlive--;
+            //if (dangerLevelLeft <= 0 && enemiesAlive <= 0)
+            //    EndWave();
         }
 
-        private void EndWave()
-        {
-            Debug.Log("Wave ended");
-            waveNum++;
-            CalculateNextDangerLevel();
-            gameStatesSystem.RestingState();
-        }
+        //private void EndWave()
+        //{
+        //    Debug.Log("Wave ended");
+        //    waveNum++;
+        //    CalculateNextDangerLevel();
+        //    gameStatesSystem.RestingState();
+        //}
     }
 }
 

@@ -20,8 +20,11 @@ public class DamagePlayer : MonoBehaviour
         if (collisionHealth != null)
         {
             collisionHealth.TakeDamage(damage);
-            int index = Random.Range(0, hitSounds.Count);
-            audioSource.PlayOneShot(hitSounds[index]);
+            if (hitSounds.Count > 0)
+            {
+                int index = Random.Range(0, hitSounds.Count);
+                audioSource.PlayOneShot(hitSounds[index]);
+            }
         }  
         else
             Debug.Log("Error: Trying to damage target without Health component");
