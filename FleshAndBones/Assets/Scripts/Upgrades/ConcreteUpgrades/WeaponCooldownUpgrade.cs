@@ -4,7 +4,7 @@ using UnityEngine;
 namespace App.Upgrades.ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "WpnCooldownUp", menuName = "Scriptable Objects/Upgrades/WeaponCooldownUpgrade")]
-    public class WeaponCooldownUpgrade : BaseUpgrade
+    public class WeaponCooldownUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Range(0f, 1f)]

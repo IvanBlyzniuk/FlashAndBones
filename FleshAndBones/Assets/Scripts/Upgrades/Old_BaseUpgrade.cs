@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace App.Upgrades
 {
-    public abstract class BaseUpgrade : ScriptableObject
+    public abstract class Old_BaseUpgrade : ScriptableObject
     {
         #region Serialized Fields
         [Min(0f)]
@@ -19,18 +19,18 @@ namespace App.Upgrades
         #endregion
 
         #region Default Visitor Methods
-        public void Enable(IUpgradable upgradable)
+        public void Enable(Old_IUpgradable upgradable)
         {
             Debug.LogWarning($"There's no method-visitor taking: { upgradable.GetType().Name } param. " +
                 $"Add one or check the correctness of {GetType().Name}.");
         }
-        public void UpdateUpgrade(IUpgradable upgradable)
+        public void UpdateUpgrade(Old_IUpgradable upgradable)
         {
             Debug.LogWarning($"There's no method-visitor taking: { upgradable.GetType().Name } param. " +
                 $"Add one or check the correctness of {GetType().Name}.");
         }
 
-        public void Disable(IUpgradable upgradable)
+        public void Disable(Old_IUpgradable upgradable)
         {
             Debug.LogWarning($"There's no method-visitor taking: { upgradable.GetType().Name } param. " +
                 $"Add one or check the correctness of {GetType().Name}.");

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace App.Upgrades.ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "MaxHPUpgrade", menuName = "Scriptable Objects/Upgrades/MaxHPUpgrade")]
-    public class MaxHPUpgrade : BaseUpgrade
+    public class MaxHPUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Min(0f)]

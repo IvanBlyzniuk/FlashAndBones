@@ -4,7 +4,7 @@ using UnityEngine;
 namespace App.Upgrades.ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "MovementSpeedUp", menuName = "Scriptable Objects/Upgrades/MovementSpeedUpgrade")]
-    public class MovementSpeedUpgrade : BaseUpgrade
+    public class MovementSpeedUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Range(1f, 10f)]

@@ -10,15 +10,15 @@ namespace App.Upgrades
     public class UpgradeManager : MonoBehaviour
     {
         #region Fields
-        private List<BaseUpgrade> upgrades;
-        private IUpgradable upgradableEntity;
+        private List<Old_BaseUpgrade> upgrades;
+        private Old_IUpgradable upgradableEntity;
         #endregion
 
         #region MonoBehaviour Methods
         private void Awake()
         {
-            upgrades = new List<BaseUpgrade>();
-            upgradableEntity = GetComponent<IUpgradable>();
+            upgrades = new List<Old_BaseUpgrade>();
+            upgradableEntity = GetComponent<Old_IUpgradable>();
         }
 
         private void Update()
@@ -34,7 +34,7 @@ namespace App.Upgrades
 
         public void DisableAll() => upgrades.ForEach(u => upgradableEntity.DisableUpgrade(u));
 
-        public void AddUpgrade(BaseUpgrade upgrade)
+        public void AddUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrades.Add(upgrade);
             upgradableEntity.EnableUpgrade(upgrade);

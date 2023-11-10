@@ -1,11 +1,11 @@
 using App.Upgrades;
 using UnityEngine;
 
-[RequireComponent(typeof(IUpgradable))]
+[RequireComponent(typeof(Old_IUpgradable))]
 public class UpgradeTester : MonoBehaviour
 {
     [SerializeField]
-    private BaseUpgrade _upgradeToTest;
+    private Old_BaseUpgrade _upgradeToTest;
 
     [SerializeField]
     private KeyCode _enableUpgradeKey;
@@ -13,11 +13,11 @@ public class UpgradeTester : MonoBehaviour
     [SerializeField]
     private KeyCode _disableUpgradeKey;
 
-    private IUpgradable _upgradable;
+    private Old_IUpgradable _upgradable;
 
     public void Awake()
     {
-        _upgradable = GetComponent<IUpgradable>();
+        _upgradable = GetComponent<Old_IUpgradable>();
 
         Debug.Log($"Upgrade Tester: enable upgrade key is set to {_enableUpgradeKey}");
         Debug.Log($"Upgrade Tester: disable upgrade key is set to {_disableUpgradeKey}");

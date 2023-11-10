@@ -16,7 +16,7 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Stand))]
     [RequireComponent(typeof(UpgradeManager))]
     #endregion
-    public class Player : MonoBehaviour , IKillable, IUpgradable
+    public class Player : MonoBehaviour , IKillable, Old_IUpgradable
     {
         #region Components
         private Transform playerTransform;
@@ -119,17 +119,17 @@ namespace App.World.Entity.Player.PlayerComponents
             dieEvent.CallDieEvent();
         }
 
-        public void EnableUpgrade(BaseUpgrade upgrade)
+        public void EnableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Enable(this);
         }
 
-        public void UpdateUpgrade(BaseUpgrade upgrade)
+        public void UpdateUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.UpdateUpgrade(this);
         }
 
-        public void DisableUpgrade(BaseUpgrade upgrade)
+        public void DisableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Disable(this);
         }
