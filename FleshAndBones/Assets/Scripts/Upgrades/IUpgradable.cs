@@ -2,7 +2,7 @@
 {
     public interface IUpgradable
     {
-        void EnableUpgrade(IUpgrade upgrade);
-        void DisableUpgrade(IUpgrade upgrade);
+        void EnableUpgrade(IUpgradeAbstractVisitor upgrade);
+        void DisableUpgrade(IUpgradeAbstractVisitor upgrade);
     }
 }

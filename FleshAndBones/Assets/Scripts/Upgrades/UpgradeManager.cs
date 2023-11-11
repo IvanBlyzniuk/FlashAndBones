@@ -8,7 +8,7 @@ namespace App.Upgrades
     public class UpgradeManager : MonoBehaviour
     {
         #region Fields
-        private Dictionary<Type, IUpgrade> upgrades; 
+        private Dictionary<Type, IUpgradeAbstractVisitor> upgrades; 
         private Dictionary<Type, IUpdatableUpgrade> updatableUpdates; 
         private IUpgradable upgradableEntity;
         #endregion
@@ -63,7 +63,7 @@ namespace App.Upgrades
             }
         }
 
-        public void AddUpgrade(IUpgrade upgrade)
+        public void AddUpgrade(IUpgradeAbstractVisitor upgrade)
         {
             if (upgrade is IUpdatableUpgrade)
             {
@@ -77,9 +77,9 @@ namespace App.Upgrades
             upgradableEntity.EnableUpgrade(upgrade);
         }
 
-        public void LevelUpUpgrade(IUpgrade upgrade)
+        public void LevelUpUpgrade(IUpgradeAbstractVisitor upgrade)
         {
-            IUpgrade upgradeToLevelUp = FindUpgrade(upgrade);
+            IUpgradeAbstractVisitor upgradeToLevelUp = FindUpgrade(upgrade);
 
             if (upgradeToLevelUp == null)
             {
@@ -94,14 +94,14 @@ namespace App.Upgrades
             upgradeToLevelUp.LevelUp();
         }
 
-        private IUpgrade FindUpgrade(IUpgrade upgrade)
+        private IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
         {
 
-            if (upgrades.TryGetValue(upgrade.GetType(), out IUpgrade upgradeToLevelUp))
+            if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor upgradeToLevelUp))
             {
                 return upgradeToLevelUp;
             }
-            else if (upgrades.TryGetValue(upgrade.GetType(), out IUpgrade updatableUpgradeToLevelUp))
+            else if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor updatableUpgradeToLevelUp))
             {
                 return updatableUpgradeToLevelUp;
             }

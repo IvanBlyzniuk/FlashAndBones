@@ -1,6 +1,6 @@
 ﻿namespace App.Upgrades
 {
-    public interface IUpdatableUpgrade : IUpgrade
+    public interface IUpdatableUpgrade : IUpgradeAbstractVisitor
     {
         void Update();
     }
