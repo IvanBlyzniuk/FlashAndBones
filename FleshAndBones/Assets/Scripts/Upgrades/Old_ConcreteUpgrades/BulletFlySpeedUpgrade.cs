@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/Upgrades/BulletFlySpeedUpgrade")]
+    [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/Old_Upgrades/BulletFlySpeedUpgrade")]
     public class BulletFlySpeedUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields

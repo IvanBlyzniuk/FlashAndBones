@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "DamageUp", menuName = "Scriptable Objects/Upgrades/WeaponDamageUpgrade")]
+    [CreateAssetMenu(fileName = "DamageUp", menuName = "Scriptable Objects/Old_Upgrades/WeaponDamageUpgrade")]
     public class WeaponDamageUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields

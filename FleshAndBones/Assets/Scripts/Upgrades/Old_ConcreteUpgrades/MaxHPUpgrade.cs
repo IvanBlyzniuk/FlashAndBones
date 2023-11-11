@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "MaxHPUpgrade", menuName = "Scriptable Objects/Upgrades/MaxHPUpgrade")]
+    [CreateAssetMenu(fileName = "MaxHPUpgrade", menuName = "Scriptable Objects/Old_Upgrades/MaxHPUpgrade")]
     public class MaxHPUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields

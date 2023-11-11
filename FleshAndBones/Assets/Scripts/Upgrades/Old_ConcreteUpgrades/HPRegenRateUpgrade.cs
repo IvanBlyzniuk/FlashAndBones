@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "HPRegenRateUp", menuName = "Scriptable Objects/Upgrades/HPRegenRateUpgrade")]
+    [CreateAssetMenu(fileName = "HPRegenRateUp", menuName = "Scriptable Objects/Old_Upgrades/HPRegenRateUpgrade")]
     public class HPRegenRateUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
