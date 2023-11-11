@@ -1,7 +1,7 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "MaxHPUpgrade", menuName = "Scriptable Objects/Upgrades/MaxHPUpgrade")]
     public class MaxHPUpgrade : Old_BaseUpgrade

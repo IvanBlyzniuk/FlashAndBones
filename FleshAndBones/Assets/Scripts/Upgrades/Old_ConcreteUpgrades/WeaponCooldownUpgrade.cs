@@ -1,7 +1,7 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "WpnCooldownUp", menuName = "Scriptable Objects/Upgrades/WeaponCooldownUpgrade")]
     public class WeaponCooldownUpgrade : Old_BaseUpgrade

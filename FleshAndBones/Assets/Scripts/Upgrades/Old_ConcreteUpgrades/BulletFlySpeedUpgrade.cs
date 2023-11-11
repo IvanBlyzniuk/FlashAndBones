@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/Upgrades/BulletFlySpeedUpgrade")]
     public class BulletFlySpeedUpgrade : Old_BaseUpgrade

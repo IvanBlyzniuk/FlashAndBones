@@ -1,7 +1,7 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
     [CreateAssetMenu(fileName = "DamageUp", menuName = "Scriptable Objects/Upgrades/WeaponDamageUpgrade")]
     public class WeaponDamageUpgrade : Old_BaseUpgrade
