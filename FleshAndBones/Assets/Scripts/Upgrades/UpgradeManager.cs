@@ -54,12 +54,12 @@ namespace App.Upgrades
         {
             foreach (var upgrade in upgrades.Values)
             {
-                upgradableEntity.DisableUpgrade(upgrade);
+                upgrade.Disable();
             }
 
             foreach (var upgrade in updatableUpdates.Values)
             {
-                upgradableEntity.DisableUpgrade(upgrade);
+                upgrade.Disable();
             }
         }
 
