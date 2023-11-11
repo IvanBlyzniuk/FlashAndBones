@@ -2,7 +2,6 @@
 {
     public interface IDisplayableUpgrade
     {
-        string Name { get; }
         string Description { get; }
     }
 }
