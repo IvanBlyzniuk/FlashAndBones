@@ -14,7 +14,7 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Movement))]
     [RequireComponent(typeof(Aim))]
     [RequireComponent(typeof(Stand))]
-    [RequireComponent(typeof(UpgradeManager))]
+    [RequireComponent(typeof(Old_UpgradeManager))]
     #endregion
     public class Player : MonoBehaviour , IKillable, Old_IUpgradable
     {
@@ -22,7 +22,7 @@ namespace App.World.Entity.Player.PlayerComponents
         private Transform playerTransform;
         private Animator pAnimator;
         private Health health;
-        private UpgradeManager upgradeManager;
+        private Old_UpgradeManager upgradeManager;
         [SerializeField]
         private PlayerDataSO playerData;
         #endregion
@@ -101,7 +101,7 @@ namespace App.World.Entity.Player.PlayerComponents
             playerTransform = GetComponent<Transform>();
             pAnimator = GetComponent<Animator>();
             health = GetComponent<Health>();
-            upgradeManager = GetComponent<UpgradeManager>();
+            upgradeManager = GetComponent<Old_UpgradeManager>();
             weapon = CurWeaponObj.GetComponent<Weapon>();
             audioSource = GetComponent<AudioSource>();
             movementSpeed = playerData.speed;
