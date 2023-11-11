@@ -3,6 +3,7 @@ using App.World.Entity.Player.Weapons;
 using UnityEngine;
 using App.Upgrades;
 using App.World.UI.Events;
+using Unity.VisualScripting;
 
 namespace App.World.Entity.Player.PlayerComponents
 {
@@ -16,7 +17,7 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Stand))]
     [RequireComponent(typeof(Old_UpgradeManager))]
     #endregion
-    public class Player : MonoBehaviour , IKillable, Old_IUpgradable
+    public class Player : MonoBehaviour, IKillable, Old_IUpgradable, IUpgradable
     {
         #region Components
         private Transform playerTransform;
@@ -132,6 +133,16 @@ namespace App.World.Entity.Player.PlayerComponents
         public void DisableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Disable(this);
+        }
+
+        public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            IUpgradable.EnableUpgradeViaVisitorOf(this, upgrade);
+        }
+
+        public void DisableUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            throw new System.NotImplementedException();
         }
         //public void MakeStepSound()
         //{
