@@ -1,10 +1,10 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "MovementSpeedUp", menuName = "Scriptable Objects/Upgrades/MovementSpeedUpgrade")]
-    public class MovementSpeedUpgrade : BaseUpgrade
+    [CreateAssetMenu(fileName = "MovementSpeedUp", menuName = "Scriptable Objects/Old_Upgrades/MovementSpeedUpgrade")]
+    public class MovementSpeedUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Range(1f, 10f)]

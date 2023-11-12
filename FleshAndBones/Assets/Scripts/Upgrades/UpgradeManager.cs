@@ -1,23 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-
-
-using App.Upgrades.ConcreteUpgrades;
-
 
 namespace App.Upgrades
 {
+    [RequireComponent(typeof(IUpgradable))]
     public class UpgradeManager : MonoBehaviour
     {
         #region Fields
-        private List<BaseUpgrade> upgrades;
+        private Dictionary<Type, IUpgradeAbstractVisitor> upgrades; 
+        private Dictionary<Type, IUpdatableUpgrade> updatableUpdates; 
         private IUpgradable upgradableEntity;
         #endregion
 
         #region MonoBehaviour Methods
         private void Awake()
         {
-            upgrades = new List<BaseUpgrade>();
+            upgrades = new();
+            updatableUpdates = new(); 
             upgradableEntity = GetComponent<IUpgradable>();
         }
 
@@ -28,17 +28,87 @@ namespace App.Upgrades
         #endregion
 
         #region Custom Methods
-        public void EnableAll() => upgrades.ForEach(u => upgradableEntity.EnableUpgrade(u));
 
-        public void UpdateAll() => upgrades.ForEach(u => upgradableEntity.UpdateUpgrade(u));
-
-        public void DisableAll() => upgrades.ForEach(u => upgradableEntity.DisableUpgrade(u));
-
-        public void AddUpgrade(BaseUpgrade upgrade)
+        public void EnableAll()
         {
-            upgrades.Add(upgrade);
+            foreach (var upgrade in upgrades.Values) 
+            {
+                upgradableEntity.EnableUpgrade(upgrade);
+            }
+
+            foreach (var upgrade in updatableUpdates.Values)
+            {
+                upgradableEntity.EnableUpgrade(upgrade);
+            }
+        }
+
+        public void UpdateAll()
+        {
+            foreach (var upgrade in updatableUpdates.Values)
+            {
+                upgrade.Update();
+            }
+        }
+
+        public void DisableAll()
+        {
+            foreach (var upgrade in upgrades.Values)
+            {
+                upgrade.Disable();
+            }
+
+            foreach (var upgrade in updatableUpdates.Values)
+            {
+                upgrade.Disable();
+            }
+        }
+
+        public void AddUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            if (upgrade is IUpdatableUpgrade)
+            {
+                updatableUpdates.Add(upgrade.GetType(), upgrade as IUpdatableUpgrade);
+            }
+            else
+            {
+                upgrades.Add(upgrade.GetType(), upgrade);
+            }
+
             upgradableEntity.EnableUpgrade(upgrade);
         }
+
+        public void LevelUpUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            IUpgradeAbstractVisitor upgradeToLevelUp = FindUpgrade(upgrade);
+
+            if (upgradeToLevelUp == null)
+            {
+                throw new ArgumentException("Trying to level-up an upgrade absent in UpgradeManager Collection.");
+            }
+
+            if (upgradeToLevelUp.IsComplete)
+            {
+                throw new InvalidOperationException("Impossible to level-up a complete upgrade.");
+            }
+
+            upgradeToLevelUp.LevelUp();
+        }
+
+        private IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+
+            if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor upgradeToLevelUp))
+            {
+                return upgradeToLevelUp;
+            }
+            else if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor updatableUpgradeToLevelUp))
+            {
+                return updatableUpgradeToLevelUp;
+            }
+
+            return null;
+        }
+
         #endregion
     }
 }

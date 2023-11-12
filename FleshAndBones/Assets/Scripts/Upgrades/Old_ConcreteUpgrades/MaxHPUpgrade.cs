@@ -1,25 +1,25 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "DamageUp", menuName = "Scriptable Objects/Upgrades/WeaponDamageUpgrade")]
-    public class WeaponDamageUpgrade : BaseUpgrade
+    [CreateAssetMenu(fileName = "MaxHPUpgrade", menuName = "Scriptable Objects/Old_Upgrades/MaxHPUpgrade")]
+    public class MaxHPUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Min(0f)]
-        [SerializeField] private float damageAddent;
+        [SerializeField] private float maxHPAddent;
         #endregion
 
         #region Overriden Methods
         protected override void Upgrade(Player upgradable)
         {
-            upgradable.Weapon.Damage *= damageAddent;
+            upgradable.Health.MaxHealth += maxHPAddent;
         }
 
         protected override void Degrade(Player upgradable)
         {
-            upgradable.Weapon.Damage /= damageAddent;
+            upgradable.Health.MaxHealth -= maxHPAddent;
         }
 
         protected override void UpdateIfEnabled(Player upgradable) { }

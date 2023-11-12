@@ -3,6 +3,7 @@ using App.World.Entity.Player.Weapons;
 using UnityEngine;
 using App.Upgrades;
 using App.World.UI.Events;
+using Unity.VisualScripting;
 
 namespace App.World.Entity.Player.PlayerComponents
 {
@@ -14,15 +15,15 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Movement))]
     [RequireComponent(typeof(Aim))]
     [RequireComponent(typeof(Stand))]
-    [RequireComponent(typeof(UpgradeManager))]
+    [RequireComponent(typeof(Old_UpgradeManager))]
     #endregion
-    public class Player : MonoBehaviour , IKillable, IUpgradable
+    public class Player : MonoBehaviour, IKillable, Old_IUpgradable, IUpgradable
     {
         #region Components
         private Transform playerTransform;
         private Animator pAnimator;
         private Health health;
-        private UpgradeManager upgradeManager;
+        private Old_UpgradeManager upgradeManager;
         [SerializeField]
         private PlayerDataSO playerData;
         #endregion
@@ -101,7 +102,7 @@ namespace App.World.Entity.Player.PlayerComponents
             playerTransform = GetComponent<Transform>();
             pAnimator = GetComponent<Animator>();
             health = GetComponent<Health>();
-            upgradeManager = GetComponent<UpgradeManager>();
+            upgradeManager = GetComponent<Old_UpgradeManager>();
             weapon = CurWeaponObj.GetComponent<Weapon>();
             audioSource = GetComponent<AudioSource>();
             movementSpeed = playerData.speed;
@@ -119,19 +120,29 @@ namespace App.World.Entity.Player.PlayerComponents
             dieEvent.CallDieEvent();
         }
 
-        public void EnableUpgrade(BaseUpgrade upgrade)
+        public void EnableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Enable(this);
         }
 
-        public void UpdateUpgrade(BaseUpgrade upgrade)
+        public void UpdateUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.UpdateUpgrade(this);
         }
 
-        public void DisableUpgrade(BaseUpgrade upgrade)
+        public void DisableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Disable(this);
+        }
+
+        public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            IUpgradable.EnableUpgradeViaVisitorOf(this, upgrade);
+        }
+
+        public void DisableUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            throw new System.NotImplementedException();
         }
         //public void MakeStepSound()
         //{

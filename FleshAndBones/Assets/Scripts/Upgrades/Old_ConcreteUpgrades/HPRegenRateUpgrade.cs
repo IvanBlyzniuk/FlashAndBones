@@ -1,10 +1,10 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades
+namespace App.Upgrades.Old_ConcreteUpgrades
 {
-    [CreateAssetMenu(fileName = "HPRegenRateUp", menuName = "Scriptable Objects/Upgrades/HPRegenRateUpgrade")]
-    public class HPRegenRateUpgrade : BaseUpgrade
+    [CreateAssetMenu(fileName = "HPRegenRateUp", menuName = "Scriptable Objects/Old_Upgrades/HPRegenRateUpgrade")]
+    public class HPRegenRateUpgrade : Old_BaseUpgrade
     {
         #region Serialized Fields
         [Min(0.0f)]
