@@ -11,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - DropableItem
+  - Bullet
+  - EnemyAttack
+  - PlayerInteractor
+  - EnemyCollider
   - 
   - 
   - 
