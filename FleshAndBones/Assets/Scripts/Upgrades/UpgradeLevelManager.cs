@@ -11,20 +11,10 @@ namespace App.Upgrades
         public bool IsComplete { get => currentLevelIndex == levels.Count - 1; }
         public LevelType CurrentLevel => levels[currentLevelIndex];
 
-        public UpgradeLevelManager(List<LevelType> levels, int initialLevelIndex = 0)
+        public UpgradeLevelManager(List<LevelType> levels)
         {
-            if (levels.Count == 0)
-            {
-                throw new ArgumentException("Cannot manage an empty level set.");
-            }
-
-            if (currentLevelIndex < 0 || currentLevelIndex >= levels.Count) 
-            {
-                throw new IndexOutOfRangeException($"Input level index is out of level-set's bounds: {initialLevelIndex}");
-            }
-
             this.levels = levels;
-            this.currentLevelIndex = initialLevelIndex;
+            currentLevelIndex = 0;
         }
 
         public void LevelUp()

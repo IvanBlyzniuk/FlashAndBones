@@ -11,7 +11,6 @@ namespace App.Upgrades
     public abstract class BaseUpgradeScriptableObject<UpgradableEntity> 
         : ScriptableObject
         , IDisplayableUpgrade
-        , IUpgradeAbstractVisitor
         , IUpgradeVisitor<UpgradableEntity>
 
         where UpgradableEntity : IUpgradable
@@ -19,6 +18,8 @@ namespace App.Upgrades
         public abstract string Description { get; }
 
         public abstract bool IsComplete { get; }
+
+        public abstract bool IsEnabled { get; }
 
         public abstract void Disable();
 

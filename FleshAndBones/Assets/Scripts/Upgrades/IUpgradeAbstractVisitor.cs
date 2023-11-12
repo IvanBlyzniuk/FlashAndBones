@@ -20,5 +20,6 @@ namespace App.Upgrades
         void Disable();
         void LevelUp();
         bool IsComplete { get; }
+        bool IsEnabled { get; }
     }
 }
