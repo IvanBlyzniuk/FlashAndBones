@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1203bee41570b408aae12297f46572, type: 3}
   m_Name: BulletSpeedUp
   m_EditorClassIdentifier: 
-  description: SomeDsdsa
+  description: Bullet Speed Up Description
   levels:
-  - bulletFlySpeedMultiplier: 2.59
-  - bulletFlySpeedMultiplier: 5.74
-  - bulletFlySpeedMultiplier: 8.73
+  - bulletFlySpeedMultiplier: 1
+  - bulletFlySpeedMultiplier: 1.74
+  - bulletFlySpeedMultiplier: 2.95
+  - bulletFlySpeedMultiplier: 5.42
+  - bulletFlySpeedMultiplier: 7.91
   - bulletFlySpeedMultiplier: 10

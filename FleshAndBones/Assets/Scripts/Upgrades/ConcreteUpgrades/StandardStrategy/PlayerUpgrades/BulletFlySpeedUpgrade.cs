@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using App.World.Entity.Player.PlayerComponents;
-using System.Collections.Generic;
 using System;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
@@ -11,7 +10,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         [Range(1f, 10f)] public float bulletFlySpeedMultiplier;
     }
     
-    [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/PerfectUpgrades/BulletFlySpeedUpgrade")]
+    [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/Upgrades/BulletFlySpeedUpgrade")]
     public class BulletFlySpeedUpgrade : StandardUpgradeScriptableObject<Player, BulletFlySpeedUpgradeLevel>
     {
         public BulletFlySpeedUpgrade() : base(new PlayerBulletFlySpeedUpgradeStrategy()) {}
