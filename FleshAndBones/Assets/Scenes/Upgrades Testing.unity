@@ -374,6 +374,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1553330678}
     - target: {fileID: 1950550801357636187, guid: 57ce80132f99e0c47a0f51cb696f57a2, type: 3}
+      propertyPath: totalDangerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950550801357636187, guid: 57ce80132f99e0c47a0f51cb696f57a2, type: 3}
       propertyPath: enemies.Array.size
       value: 5
       objectReference: {fileID: 0}
