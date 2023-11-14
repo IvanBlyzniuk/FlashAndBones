@@ -1,12 +1,10 @@
-﻿using App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
 {
-    public class StandardUpgradeScriptableObject<UpgradableEntity, LevelType> : BaseUpgradeScriptableObject<UpgradableEntity>
-        
+    public class StandardUpdatableUpgradeScriptableObject<UpgradableEntity, LevelType> : BaseUpgradeScriptableObject<UpgradableEntity>
+
         where UpgradableEntity : class, IUpgradable
     {
         #region Serialized Fields
@@ -15,7 +13,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         #endregion
 
         #region Fields
-        private readonly StandardUpgradeAlgorithm<UpgradableEntity, LevelType> upgradeAlgorithm;
+        private readonly StandardUpdatableUpgradeAlgorithm<UpgradableEntity, LevelType> upgradeAlgorithm;
         #endregion
 
         #region Properties
@@ -25,10 +23,10 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         #endregion
 
         #region Constructors
-        public StandardUpgradeScriptableObject(IStrategy<UpgradableEntity, LevelType> strategy)
+        public StandardUpdatableUpgradeScriptableObject(IUpdatableStrategy<UpgradableEntity, LevelType> strategy)
         {
             levels = new();
-            upgradeAlgorithm = new (strategy, levels);
+            upgradeAlgorithm = new(strategy, levels);
         }
         #endregion
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.Rendering.Universal.Internal;
+﻿using System.Collections.Generic;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
 {
@@ -19,6 +14,12 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         public bool IsComplete => nonUpdatableVisitor.IsComplete;
 
         public bool IsEnabled => nonUpdatableVisitor.IsEnabled;
+
+        public StandardUpdatableUpgradeAlgorithm(IUpdatableStrategy<UpgradableEntity, LevelType> strategy, List<LevelType> levelSet)
+        {
+            nonUpdatableVisitor = new(strategy, levelSet);
+            updatableStrategy = strategy;
+        }
 
         public void Disable()
         {

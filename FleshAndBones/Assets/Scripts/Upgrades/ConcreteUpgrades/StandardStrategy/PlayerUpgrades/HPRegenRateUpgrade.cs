@@ -10,8 +10,8 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         [Min(0.0f)] public float period;
     }
 
-    [CreateAssetMenu(fileName = "BulletSpeedUp", menuName = "Scriptable Objects/Upgrades/BulletFlySpeedUpgrade")]
-    public class HPRegenRateUpgrade : StandardUpgradeScriptableObject<Player, HpRegenRateUpgradeLevel>
+    [CreateAssetMenu(fileName = "HPRegenRate", menuName = "Scriptable Objects/Upgrades/HPRegenRateUpgrade")]
+    public class HPRegenRateUpgrade : StandardUpdatableUpgradeScriptableObject<Player, HpRegenRateUpgradeLevel>
     {
         public HPRegenRateUpgrade() : base(new HPRegenRateUpgradeUpgradeStrategy()) { }
     }
