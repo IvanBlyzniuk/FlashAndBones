@@ -8,7 +8,7 @@ namespace App.Utilities
     {
         public delegate void OnSceneSwitched();
         public static Action SwitchToNextLoadedScene;
-        private static readonly string LoadingSceneName = "Loading";
+        private static readonly string LoadingSceneName = "Loading Scene";
 
         public static void SwitchToSceneLoadingScreen(string sceneName)
         {
