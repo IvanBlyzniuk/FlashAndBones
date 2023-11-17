@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5308154924768703907}
   - component: {fileID: 4094215037982882715}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,9 +64,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.57}
-  m_Size: {x: 0.69, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0, y: -0.09}
+  m_Size: {x: 0.63, y: 0.31}
+  m_Direction: 1
 --- !u!1 &5091485738642046150
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,8 +83,8 @@ GameObject:
   - component: {fileID: 759329093901067592}
   - component: {fileID: 7285049875965437861}
   - component: {fileID: 7803736451843175888}
-  m_Layer: 0
-  m_Name: Giant Roach
+  m_Layer: 7
+  m_Name: Zombie Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3a49f37557a9ce46a8f0c9143e6e6dc, type: 3}
+  m_Sprite: {fileID: -1404624605, guid: d20295f7551a3d7419fe75eda75d2b6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -212,8 +212,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.89, y: 2.28}
-  m_Direction: 0
+  m_Size: {x: 1.04, y: 0.55}
+  m_Direction: 1
 --- !u!114 &7036078908636842551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ Animator:
   m_GameObject: {fileID: 5091485738642046150}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d204089efade6114891a8691b6680eb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 2485511165126101251}
   - component: {fileID: 959467859321546276}
   - component: {fileID: 1158628793187518063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,11 +450,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.7672462, y: 1.1623956}
+    - - {x: 0.4123478, y: 0.24299991}
       - {x: 0.10929102, y: -0.082642764}
-      - {x: 1.189013, y: -0.7994646}
-      - {x: 1.7436596, y: -1.1720185}
-      - {x: 2.0687199, y: 0.11796349}
+      - {x: 0.42446375, y: -0.2768606}
+      - {x: 0.5048958, y: -0.13648844}
+      - {x: 0.5009098, y: 0.079252064}
   m_UseDelaunayMesh: 0
 --- !u!114 &959467859321546276
 MonoBehaviour:
