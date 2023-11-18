@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73b438949dae3c49a5db8d3778dec90, type: 3}
-  m_Name: Ranged Zombie
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
   type: Acid Slime
   maxHealth: 25
