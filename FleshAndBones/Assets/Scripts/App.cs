@@ -33,7 +33,7 @@ namespace App
 
         private void Start()
         {
-            inputSystem.Init(mainCamera,objectsContainer.Player.GetComponent<Player>());
+            inputSystem.Init(mainCamera,objectsContainer.Player.GetComponent<Player>(), objectsContainer.Pauser);
             enemySpawningSystem.Init(waveSystem,objectPool,objectsContainer.Player.transform);
             waveSystem.Init(enemySpawningSystem);
             //gameStatesSystem.Init(waveSystem, objectsContainer.Gates.GetComponent<Gates>(), objectsContainer.GlobalLight, objectsContainer.Shop);

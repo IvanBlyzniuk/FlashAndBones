@@ -9,33 +9,33 @@ namespace App.Systems.Input
         
         private Camera mainCamera;
         private Player player;
-        //private Pauser pauser;
+        private Pauser pauser;
 
         private void Update()
         {
-            //if (HandlePauseInput()) return;
+            if (HandlePauseInput()) return;
             HandleAimInput();
             HandleMoveInput();
             HandleShootInput();
         }
-        public void Init(Camera mainCamera,Player player)
+        public void Init(Camera mainCamera,Player player, Pauser pauser)
         {
             this.mainCamera = mainCamera;
             this.player = player;
-            //this.pauser = pauser;
+            this.pauser = pauser;
         }
 
-        //private bool HandlePauseInput()
-        //{
-        //    if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
+        private bool HandlePauseInput()
+        {
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
 
-        //    if(pauser.IsPaused)
-        //        pauser.Unpause();
-        //    else
-        //        pauser.Pause();
+            if (pauser.IsPaused)
+                pauser.Unpause();
+            else
+                pauser.Pause();
 
-        //    return pauser.IsPaused;
-        //}
+            return pauser.IsPaused;
+        }
 
         private Vector3 GetMousePositionInWorld() 
         {

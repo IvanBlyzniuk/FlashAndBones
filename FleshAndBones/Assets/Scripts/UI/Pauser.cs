@@ -9,7 +9,7 @@ namespace App.World.UI
         [SerializeField] private GameObject fade;
         [SerializeField] private GameObject planksWithButtons;
         [SerializeField] private DeathScreenAppearedEvent onDeathScreenAppeared;
-        private Animator planksWithButtonsAnimator;
+        private Animator pausePlank;
         private Animator fadeAnimator;
         private bool isPaused;
         private float prepauseTimeScale;
@@ -18,7 +18,7 @@ namespace App.World.UI
 
         private void Awake()
         {
-            planksWithButtonsAnimator = planksWithButtons.GetComponent<Animator>();
+            pausePlank = planksWithButtons.GetComponent<Animator>();
             fadeAnimator = fade.GetComponent<Animator>();
             isPaused = false;
             prepauseTimeScale = Time.timeScale;
@@ -41,10 +41,11 @@ namespace App.World.UI
 
         public void Pause()
         {
+            Debug.Log("Pause");
             if (isPaused)
                 throw new System.InvalidOperationException("Cannot pause an already paused game.");
             fade.SetActive(true);
-            planksWithButtonsAnimator.Play("AppearPlanksWithButtons");
+            pausePlank.Play("Appear");
             fadeAnimator.Play("Fade");
             StopGame();
             pauseEvent.CallPauseEvent(true);
@@ -52,9 +53,10 @@ namespace App.World.UI
 
         public void Unpause()
         {
+            Debug.Log("Unpause");
             if (!isPaused)
                 throw new System.InvalidOperationException("Cannot unpause a not paused game.");
-            planksWithButtonsAnimator.Play("DisappearPlanksWithButtons");
+            pausePlank.Play("Disappear");
             fadeAnimator.Play("Unfade");
             RenewGame();
             pauseEvent.CallPauseEvent(false);
