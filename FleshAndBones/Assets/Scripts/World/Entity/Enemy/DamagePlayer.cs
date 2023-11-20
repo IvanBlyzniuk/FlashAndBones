@@ -24,18 +24,15 @@ public class DamagePlayer : MonoBehaviour
         {
             // Check if the player dodges the attack
             if (Random.value > player.DodgeChance)
-              
+
                 collisionHealth.TakeDamage(damage);
-                PlayHitSound();
-            }
-            else
-            {
-                
-                PlayDodgeEffect();
-            }
+            PlayHitSound();
         }
         else
-            Debug.Log("Error: Trying to damage target without Health component");
+        {
+
+            PlayDodgeEffect();
+        }
     }
 
     private void PlayHitSound()
