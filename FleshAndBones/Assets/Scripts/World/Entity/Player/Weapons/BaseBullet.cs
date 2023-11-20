@@ -1,4 +1,6 @@
 using App.Systems.EnemySpawning;
+using App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades;
+using App.World.Entity.Enemy;
 using UnityEngine;
 using World.Entity;
 
@@ -7,10 +9,13 @@ namespace App.World.Entity.Player.Weapons
     public class BaseBullet : MonoBehaviour, IObjectPoolItem
     {
         protected float damage;
+        protected float accuracy;
+        protected LifeStealInfo lifeStealAmount;
         protected float pearcingCount;
         protected ObjectPool objectPool;
         [SerializeField]
         protected string poolObjectType;
+        protected SlowEffectInfo slowEffect;
         public string PoolObjectType => poolObjectType;
 
         public virtual void OnTriggerEnter2D(Collider2D collision)
@@ -22,12 +27,22 @@ namespace App.World.Entity.Player.Weapons
                 objectPool.ReturnToPool(this);
                 return;
             }
+
+            if (Random.Range(1, 11) * accuracy < 6)
+            {
+                return; // Bullet misses
+            }
+
             Health targetHealt = collision.GetComponent<Health>();
             if (targetHealt == null)
             {
                 return;
             }
             targetHealt.TakeDamage(damage);
+            float lifeSteal = damage * lifeStealAmount.lifeStealAmount;
+            lifeStealAmount.player.Health.Heal(lifeSteal);
+
+
             if (pearcingCount > 0)
             {
                 pearcingCount--;
@@ -36,12 +51,21 @@ namespace App.World.Entity.Player.Weapons
             {
                 objectPool.ReturnToPool(this);
             }
- 
+
+            BaseEnemy enemy = collision.GetComponent<BaseEnemy>();
+            if (enemy != null)
+            {
+                ApplySlowEffect(enemy);
+            }
+
         }
-        public virtual void Init(float damage, int pearcingCount)
+        public virtual void Init(float damage, int pearcingCount, float accuracy, LifeStealInfo lifeStealAmount, SlowEffectInfo slowEffect)
         {
             this.damage = damage;
             this.pearcingCount = pearcingCount;
+            this.accuracy = accuracy;
+            this.lifeStealAmount = lifeStealAmount;
+            this.slowEffect = slowEffect;
             GetComponent<TimeToLive>().Init();
         }
 
@@ -60,5 +84,15 @@ namespace App.World.Entity.Player.Weapons
         {
             return (gameObject);
         }
+
+
+        private void ApplySlowEffect(BaseEnemy enemy)
+        {
+            if (slowEffect.slowMultiplier > 0 && slowEffect.slowDuration > 0)
+            {
+                enemy.ApplySlow(slowEffect.slowMultiplier, slowEffect.slowDuration);
+            }
+        }
+
     }
 }

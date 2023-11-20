@@ -65,6 +65,8 @@ namespace App.World.Entity.Player.PlayerComponents
         private float movementSpeed;
         private int money;
         private bool isDead; //TODO replace with more global "game stop"
+
+        private float dodgeChance = 0f; //for dodging(dexterity) upgrade
         #endregion
 
         #region Properties
@@ -133,6 +135,12 @@ namespace App.World.Entity.Player.PlayerComponents
         public void DisableUpgrade(Old_BaseUpgrade upgrade)
         {
             upgrade.Disable(this);
+        }
+
+        public float DodgeChance
+        {
+            get => dodgeChance;
+            set => dodgeChance = Mathf.Clamp01(value); // for dexterity upgarde
         }
 
         public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)

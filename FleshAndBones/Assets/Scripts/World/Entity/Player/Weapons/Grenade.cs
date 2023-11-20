@@ -1,3 +1,4 @@
+using App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades;
 using App.VFX;
 using UnityEngine;
 
@@ -28,9 +29,9 @@ namespace App.World.Entity.Player.Weapons
             objectPool.ReturnToPool(this);
         }
         
-        public override void Init(float damage,int pearcingCount)
+        public override void Init(float damage, int pearcingCount, float accuracy, LifeStealInfo lifeStealAmount, SlowEffectInfo slowEffect)
         {
-            base.Init(damage,pearcingCount);
+            base.Init(damage,pearcingCount, accuracy, lifeStealAmount, slowEffect);
             
         }
     }

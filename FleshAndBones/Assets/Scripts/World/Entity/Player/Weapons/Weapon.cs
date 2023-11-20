@@ -1,7 +1,10 @@
 using App.Systems.EnemySpawning;
 using UnityEngine;
+using App.Upgrades.ConcreteUpgrades;
+using App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades;
 namespace App.World.Entity.Player.Weapons
-{
+{ 
+
     public abstract class Weapon : MonoBehaviour
     {
         protected ObjectPool objectPool;
@@ -29,6 +32,9 @@ namespace App.World.Entity.Player.Weapons
         protected float coolDown;
         private int pearcingCount;
         protected GameObject bulletPrefab;
+
+        protected float accuracy = 1.0f;//for accuracy upgrade
+        protected LifeStealInfo lifeStealAmount = null;// for vamp upgrade
         #endregion
 
         protected virtual void Awake()
@@ -45,6 +51,7 @@ namespace App.World.Entity.Player.Weapons
             pearcingCount = Data.pearcingCount;
         }
 
+        public SlowEffectInfo SlowEffect { get; set; }
         public ShootEvent ShootEvent { get => shootEvent; }
         public float Cooldown { get => coolDown; set => coolDown = value; }
         public float Damage { get => damage; set => damage = value; }
@@ -52,10 +59,23 @@ namespace App.World.Entity.Player.Weapons
         public Transform ShootPosition { get => shootPosition; set => shootPosition = value; }
         public WeaponSO Data { get => data; set => data = value; }
         protected int PearcingCount { get => pearcingCount; set => pearcingCount = value; }
+        public LifeStealInfo LifeStealAmount
+        {
+            get => lifeStealAmount;
+            set => lifeStealAmount = new LifeStealInfo {
+                lifeStealAmount = Mathf.Clamp01(value.lifeStealAmount), player = value.player };
+        }
 
         private void OnEnable()
         {
             ShootEvent.OnShoot += Shoot;
+        }
+
+        public float Accuracy
+        {
+            get => accuracy;
+            set => accuracy = Mathf.Clamp01(value); 
+
         }
 
         private void OnDisable()

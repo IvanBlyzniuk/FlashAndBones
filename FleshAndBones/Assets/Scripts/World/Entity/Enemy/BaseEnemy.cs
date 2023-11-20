@@ -21,6 +21,10 @@ namespace App.World.Entity.Enemy
         private IWaveSystem waveSystem;
         private Animator animator;
         private SpriteRenderer spriteRenderer;
+        private float originalSpeed;
+        private float slowEffectDuration;
+        private float slowEffectMultiplier;
+
 
         [SerializeField]
         private Rigidbody2D myRigidbody;
@@ -167,6 +171,24 @@ namespace App.World.Entity.Enemy
         {
             effect.DisableEffect(this);
         }
+
+
+        public void ApplySlow(float multiplier, float duration)
+        {
+            StartCoroutine(SlowDownCoroutine(multiplier, duration));
+        }
+
+        private IEnumerator SlowDownCoroutine(float multiplier, float duration)
+        {
+            float originalSpeed = MyRigidbody.velocity.magnitude;
+            Vector2 originalVelocity = MyRigidbody.velocity;
+            MyRigidbody.velocity *= multiplier;
+
+            yield return new WaitForSeconds(duration);
+
+            MyRigidbody.velocity = originalVelocity.normalized * originalSpeed;
+        }
+
     }
 }
 
