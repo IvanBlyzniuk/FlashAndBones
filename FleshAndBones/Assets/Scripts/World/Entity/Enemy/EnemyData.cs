@@ -26,6 +26,7 @@ namespace App.World.Entity.Enemy
         public float maxTimeBetweenGrunts = 15f;
         public List<AudioClip> gruntSounds;
         public List<AudioClip> attackSounds;
+        public int experienceForKill;
     }
 }
 

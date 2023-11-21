@@ -8,6 +8,8 @@ using App.Effects;
 using App.World.Entity.Enemy.States;
 using World.Entity;
 using World.Entity.Enemy;
+using App.World.Entity.Player.Events;
+using App.World.Entity.Player.PlayerComponents;
 
 namespace App.World.Entity.Enemy
 {
@@ -32,6 +34,8 @@ namespace App.World.Entity.Enemy
         protected EnemyData enemyData;
         [SerializeField]
         protected List<Collider2D> myColliders;
+        [SerializeField]
+        private DieEvent dieEvent;
 
         protected StateMachine stateMachine;
         protected BaseEnemyState attackState;
@@ -46,6 +50,7 @@ namespace App.World.Entity.Enemy
         public List<Collider2D> MyColliders => myColliders;
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         public AudioSource AudioSource => audioSource;
+        public DieEvent OnDied => dieEvent;
 
         public virtual string PoolObjectType => enemyData.type;
 
@@ -58,6 +63,26 @@ namespace App.World.Entity.Enemy
             followState = new FollowState(this, stateMachine);
             spawningState = new SpawningState(this, stateMachine);
             dieState = new DieState(this,stateMachine);
+        }
+
+        private Level playerLevel;
+        private void PlayerExperienceGain(DieEvent e)
+            => playerLevel.IncreaseExperience(ExperienceForKill());
+
+        private void Start()
+        {
+            var player = GameObject.FindGameObjectsWithTag("Player")[0];
+            playerLevel = player.GetComponent<Level>();
+        }
+
+        private void OnEnable()
+        {
+            OnDied.OnDied += PlayerExperienceGain;
+        }
+
+        private void OnDisable()
+        {
+            OnDied.OnDied -= PlayerExperienceGain;
         }
 
         void Update()
@@ -106,6 +131,7 @@ namespace App.World.Entity.Enemy
                 stateMachine.ChangeState(dieState);
                 DropMoney();
                 DropHealing();
+                OnDied?.CallDieEvent();
             }
         }
 
@@ -167,6 +193,8 @@ namespace App.World.Entity.Enemy
         {
             effect.DisableEffect(this);
         }
+
+        public int ExperienceForKill() => EnemyData.experienceForKill;
     }
 }
 

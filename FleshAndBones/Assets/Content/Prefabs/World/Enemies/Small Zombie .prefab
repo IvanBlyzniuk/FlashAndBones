@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3382411551180813450}
   - component: {fileID: 649721302314839214}
   - component: {fileID: 2939260724126056633}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,11 +78,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.7672462, y: 1.1623956}
+    - - {x: 0.48573112, y: 0.28135264}
       - {x: 0.10929102, y: -0.082642764}
-      - {x: 1.189013, y: -0.7994646}
-      - {x: 1.7436596, y: -1.1720185}
-      - {x: 2.0687199, y: 0.11796349}
+      - {x: 0.5549302, y: -0.33891952}
+      - {x: 0.5956341, y: -0.14413524}
+      - {x: 0.6003132, y: 0.09793979}
   m_UseDelaunayMesh: 0
 --- !u!114 &649721302314839214
 MonoBehaviour:
@@ -210,7 +210,8 @@ GameObject:
   - component: {fileID: 3069391272724037312}
   - component: {fileID: 3537681261048421107}
   - component: {fileID: 7095271827357010642}
-  m_Layer: 0
+  - component: {fileID: -567368872874328927}
+  m_Layer: 7
   m_Name: 'Small Zombie '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +276,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3a49f37557a9ce46a8f0c9143e6e6dc, type: 3}
+  m_Sprite: {fileID: -2049279150, guid: 08db96ca4c1787040997231d0b3a63f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,6 +306,7 @@ MonoBehaviour:
   myColliders:
   - {fileID: 5251408052068477737}
   - {fileID: 1414323865107306540}
+  dieEvent: {fileID: -567368872874328927}
   attack: {fileID: 649721302314839214}
 --- !u!70 &5251408052068477737
 CapsuleCollider2D:
@@ -339,7 +341,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.89, y: 2.28}
+  m_Size: {x: 0.29, y: 0.65}
   m_Direction: 0
 --- !u!114 &6902105275680650979
 MonoBehaviour:
@@ -365,7 +367,7 @@ Animator:
   m_GameObject: {fileID: 2736580406379298235}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee4537de5a1eb0f468b74d2e7ffd99ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -499,6 +501,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-567368872874328927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736580406379298235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a3b1678d10254ab9fe902a587dd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7554034366496562195
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115802978613621914}
   - component: {fileID: 1414323865107306540}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,6 +577,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.57}
-  m_Size: {x: 0.69, y: 1}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.21, y: 0.21}
   m_Direction: 0
