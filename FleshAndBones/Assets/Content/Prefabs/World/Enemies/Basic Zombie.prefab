@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7836963502059427925}
   - component: {fileID: 2314965048452522348}
   - component: {fileID: 4300428666392912006}
+  - component: {fileID: 6239965510288659288}
   m_Layer: 7
   m_Name: Basic Zombie
   m_TagString: Untagged
@@ -111,6 +112,7 @@ MonoBehaviour:
   myColliders:
   - {fileID: 9199909284370260703}
   - {fileID: 4191379968108494488}
+  dieEvent: {fileID: 6239965510288659288}
   attack: {fileID: 7959030311421407614}
 --- !u!70 &9199909284370260703
 CapsuleCollider2D:
@@ -305,6 +307,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6239965510288659288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340035957381318474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a3b1678d10254ab9fe902a587dd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4684085855534579785
 GameObject:
   m_ObjectHideFlags: 0
