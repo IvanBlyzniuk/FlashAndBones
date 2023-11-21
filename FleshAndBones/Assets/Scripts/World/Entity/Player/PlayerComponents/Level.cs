@@ -49,7 +49,11 @@ namespace App.World.Entity.Player.PlayerComponents
 
             currentExperience = 0;
             CurrentLevel = 0;
-            OnExperienceGained?.CallValueUpdateEvent(0, 0, nextLevelExperience);
+        }
+
+        private void Start()
+        {
+            OnExperienceGained?.CallValueUpdateEvent(0, currentExperience, nextLevelExperience);
         }
 
         public void IncreaseExperience(int increase)

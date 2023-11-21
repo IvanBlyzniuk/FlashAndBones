@@ -10,6 +10,7 @@ public class ExperienceMapper : MonoBehaviour
 
     private void MapValue(ValueUpdateEvent ev, ValueUpdateEventArgs args)
     {
+        Debug.Log($"Experience args: {args.prevValue}, {args.newValue}, {args.maxValue}");
         var percentage = args.newValue / args.maxValue;
         var prevScale = fill.transform.localScale;
         fill.transform.localScale = new Vector3(percentage, prevScale.y, prevScale.z);
