@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1203bee41570b408aae12297f46572, type: 3}
   m_Name: BulletSpeedUp
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: e89d204b98653e94394fcad48b298ee2, type: 3}
   description: Bullet Speed Up Description
   levels:
   - bulletFlySpeedMultiplier: 1

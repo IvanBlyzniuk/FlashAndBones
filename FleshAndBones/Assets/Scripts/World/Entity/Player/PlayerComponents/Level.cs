@@ -33,8 +33,10 @@ namespace App.World.Entity.Player.PlayerComponents
                 if (value > MaxLevel)
                     throw new InvalidOperationException("Too big level.");
 
+                int prevLevel = currentLevel;
                 currentLevel = value;
                 nextLevelExperience = value >= MaxLevel ? EXPERIENCE_WHEN_FULL_LEVEL : levels[currentLevel];
+                OnLevelUp?.CallValueUpdateEvent(prevLevel, currentLevel, MaxLevel);
 
                 Debug.Log($"Gained Level = {currentLevel}");
             }
@@ -48,11 +50,11 @@ namespace App.World.Entity.Player.PlayerComponents
             }
 
             currentExperience = 0;
-            CurrentLevel = 0;
         }
 
         private void Start()
         {
+            CurrentLevel = 0;
             OnExperienceGained?.CallValueUpdateEvent(0, currentExperience, nextLevelExperience);
         }
 
@@ -70,7 +72,6 @@ namespace App.World.Entity.Player.PlayerComponents
 
                 totalExperience -= nextLevelExperience;
                 ++CurrentLevel;
-                OnLevelUp?.CallValueUpdateEvent(currentLevel - 1, currentLevel, MaxLevel);
             }
 
             OnExperienceGained?.CallValueUpdateEvent(currentExperience, totalExperience, nextLevelExperience);

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf77af3f91567c41b116d9789c2ef47, type: 3}
   m_Name: NewUpgrade
   m_EditorClassIdentifier: 
-  description: 
+  image: {fileID: 21300000, guid: 0364d9d539cec29469f4793513aa6cc4, type: 3}
+  description: New Upgrade Description
   levels: []
