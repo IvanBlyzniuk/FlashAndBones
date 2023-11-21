@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3114496700372066687}
   - component: {fileID: 3471933580609758303}
   - component: {fileID: 2881131738715082196}
+  - component: {fileID: 6752153177770792134}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -110,6 +111,7 @@ MonoBehaviour:
   myColliders:
   - {fileID: 8663660402187659072}
   - {fileID: 7167102782869811759}
+  dieEvent: {fileID: 6752153177770792134}
   projectile: {fileID: 7530511543967145495, guid: e6976da13e1a372438ab95f90ca8f873, type: 3}
 --- !u!70 &8663660402187659072
 CapsuleCollider2D:
@@ -304,6 +306,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6752153177770792134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481359488700341681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a3b1678d10254ab9fe902a587dd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7716484864873397112
 GameObject:
   m_ObjectHideFlags: 0

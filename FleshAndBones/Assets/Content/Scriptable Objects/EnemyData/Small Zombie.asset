@@ -25,9 +25,10 @@ MonoBehaviour:
   spawnAnimationDuration: 1
   minMoneyDrop: 1
   maxMoneyDrop: 1
-  moneyPrefab: {fileID: 5133134966575723053, guid: fe6f5b7162ee8c14687e14c18b6b84a9, type: 3}
-  healingPrefab: {fileID: 5726524925912292538, guid: 80e810be8149c62469658e555a2fe1cb, type: 3}
+  moneyPrefab: {fileID: 0}
+  healingPrefab: {fileID: 0}
   minTimeBetweenGrunts: 10
   maxTimeBetweenGrunts: 15
   gruntSounds: []
   attackSounds: []
+  experienceForKill: 10
