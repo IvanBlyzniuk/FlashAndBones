@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
 {
-    public class StandardUpgradeScriptableObject<UpgradableEntity, LevelType> : BaseUpgradeScriptableObject<UpgradableEntity>
-        
+    public class StandardUpdatableUpgradeScriptableObject<UpgradableEntity, LevelType> 
+        : BaseUpgradeScriptableObject<UpgradableEntity>
+        , IUpdatableUpgradeVisitor
+
         where UpgradableEntity : class, IUpgradable
     {
         #region Serialized Fields
-        [SerializeField] private Sprite image;
         [SerializeField] private string description;
+        [SerializeField] private Sprite image;
         [SerializeField] private List<LevelType> levels;
         #endregion
 
         #region Fields
-        private readonly StandardUpgradeAlgorithm<UpgradableEntity, LevelType> upgradeAlgorithm;
+        private readonly StandardUpdatableUpgradeAlgorithm<UpgradableEntity, LevelType> upgradeAlgorithm;
         #endregion
 
         #region Properties
@@ -25,10 +27,10 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         #endregion
 
         #region Constructors
-        public StandardUpgradeScriptableObject(IStrategy<UpgradableEntity, LevelType> strategy)
+        public StandardUpdatableUpgradeScriptableObject(IUpdatableStrategy<UpgradableEntity, LevelType> strategy)
         {
             levels = new();
-            upgradeAlgorithm = new (strategy, levels);
+            upgradeAlgorithm = new(strategy, levels);
         }
         #endregion
 
@@ -46,6 +48,11 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         public override void LevelUp()
         {
             upgradeAlgorithm.LevelUp();
+        }
+
+        public void Update()
+        {
+            upgradeAlgorithm.Update();
         }
         #endregion
     }
