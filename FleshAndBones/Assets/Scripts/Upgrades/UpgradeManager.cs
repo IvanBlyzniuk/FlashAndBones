@@ -94,7 +94,7 @@ namespace App.Upgrades
             upgradeToLevelUp.LevelUp();
         }
 
-        private IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
+        public IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
         {
 
             if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor upgradeToLevelUp))

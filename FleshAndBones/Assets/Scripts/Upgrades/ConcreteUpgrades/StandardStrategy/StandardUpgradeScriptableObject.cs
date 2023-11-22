@@ -28,6 +28,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         public StandardUpgradeScriptableObject(IStrategy<UpgradableEntity, LevelType> strategy)
         {
             levels = new();
+            Debug.Log($"SPECIAL = {levels.Count}");
             upgradeAlgorithm = new (strategy, levels);
         }
         #endregion
