@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 15e65d0fc234c6848a571c85f3ec0080
+guid: 795b8e99e40088d429dff4ab5e9de281
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,169 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Decorations_1
+      name: PlayerMoveNew_0
       rect:
         serializedVersion: 2
-        x: 2351
-        y: 1592
-        width: 201
-        height: 226
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 15
+        y: 80
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e12603a0941b7489b5e890d0a479a4
-      internalID: 1589260344
+      spriteID: c56076fdd2e159f4892154c40f5a8411
+      internalID: -325291295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Decorations_2
+      name: PlayerMoveNew_1
       rect:
         serializedVersion: 2
-        x: 2766
-        y: 1632
-        width: 243
-        height: 226
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 79
+        y: 80
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e054a60b039a642a6981ffcd303303
-      internalID: 1999134493
+      spriteID: 19fcdc9e29294d547ad206051a4fb54e
+      internalID: 1673264501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Decorations_4
+      name: PlayerMoveNew_2
       rect:
         serializedVersion: 2
-        x: 3110
-        y: 1454
-        width: 412
-        height: 332
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 15
+        y: 16
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68d3cf44ba15193448a69d5f11aa70a8
-      internalID: 1335329392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Decorations_5
-      rect:
-        serializedVersion: 2
-        x: 1838
-        y: 1374
-        width: 404
-        height: 332
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14c208d451f53154f96deca28fd4489a
-      internalID: -2096298173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Decorations_7
-      rect:
-        serializedVersion: 2
-        x: 2358
-        y: 1271
-        width: 176
-        height: 209
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5d9a17d3052e6445924403acdb25d9a
-      internalID: -913843852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Decorations_12
-      rect:
-        serializedVersion: 2
-        x: 2726
-        y: 1312
-        width: 332
-        height: 178
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef88a0e6dd5df8646a2ef1a831f1bd97
-      internalID: 146777750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Decorations_14
-      rect:
-        serializedVersion: 2
-        x: 1854
-        y: 798
-        width: 468
-        height: 412
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57f51d1f6296db845bdb908f76c52e35
-      internalID: 404413345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Decorations_15
-      rect:
-        serializedVersion: 2
-        x: 2614
-        y: 1006
-        width: 188
-        height: 180
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d9530f46af8e3446a75df4fe6176c6b
-      internalID: 323343211
+      spriteID: c8c82262eb50a7842b144a2beb4361c5
+      internalID: 1177354326
       vertices: []
       indices: 
       edges: []
@@ -288,22 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Decorations_0: -682916982
-      Decorations_1: 1589260344
-      Decorations_10: -1431774841
-      Decorations_11: 708063343
-      Decorations_12: 146777750
-      Decorations_13: 1297907386
-      Decorations_14: 404413345
-      Decorations_15: 323343211
-      Decorations_2: 1999134493
-      Decorations_3: 1855240815
-      Decorations_4: 1335329392
-      Decorations_5: -2096298173
-      Decorations_6: 2027228355
-      Decorations_7: -913843852
-      Decorations_8: 1395172595
-      Decorations_9: 171384535
+      PlayerMoveNew_0: -325291295
+      PlayerMoveNew_1: 1673264501
+      PlayerMoveNew_2: 1177354326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
