@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8978448189179538004}
   - component: {fileID: 2628443985075646898}
   - component: {fileID: 7530511543967145495}
+  - component: {fileID: 2180700458649635970}
+  - component: {fileID: 4757936557331767211}
   m_Layer: 10
   m_Name: Skeleton Projectile
   m_TagString: Untagged
@@ -274,4 +276,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePlayer: {fileID: 8978448189179538004}
-  velocity: 7
+  velocity: 4
+--- !u!114 &2180700458649635970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076363133776824202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6fb017a2953b848a198e343f961c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 360
+--- !u!114 &4757936557331767211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076363133776824202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee1aff816e5e804db149a8c93bffa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToLive: 10
