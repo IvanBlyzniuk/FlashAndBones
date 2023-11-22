@@ -22,7 +22,10 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         private float period { get; set; }
         private float timeCounter { get; set; } = 0.0f;
 
-        public void Initialize(Player player) {}
+        public void Initialize(Player player)
+        {
+            Debug.Log("Enabled");
+        }
 
         public void Reset(Player player) {}
 
@@ -39,6 +42,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
             {
                 health.Heal(hpRegenRateAddent);
                 timeCounter = 0f;
+                Debug.Log("Healed");
             }
             else
             {

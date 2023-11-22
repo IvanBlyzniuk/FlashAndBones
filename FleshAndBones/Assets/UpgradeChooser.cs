@@ -51,7 +51,6 @@ public class UpgradeChooser : MonoBehaviour
     {
         Hide(view);
         RenewTime();
-        Debug.Log("Disappeared");
     }
 
     private void Show(GameObject go) => go.SetActive(true);

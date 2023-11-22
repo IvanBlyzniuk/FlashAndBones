@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
 {
-    public class StandardUpdatableUpgradeScriptableObject<UpgradableEntity, LevelType> : BaseUpgradeScriptableObject<UpgradableEntity>
+    public class StandardUpdatableUpgradeScriptableObject<UpgradableEntity, LevelType> 
+        : BaseUpgradeScriptableObject<UpgradableEntity>
+        , IUpdatableUpgradeVisitor
 
         where UpgradableEntity : class, IUpgradable
     {
@@ -46,6 +48,11 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         public override void LevelUp()
         {
             upgradeAlgorithm.LevelUp();
+        }
+
+        public void Update()
+        {
+            upgradeAlgorithm.Update();
         }
         #endregion
     }
