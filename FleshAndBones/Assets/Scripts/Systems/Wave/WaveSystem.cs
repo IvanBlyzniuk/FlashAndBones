@@ -9,26 +9,14 @@ namespace App.Systems.Wave
 {
     public class WaveSystem : MonoBehaviour, IWaveSystem
     {
-        private int waveNum = 1;
         private EnemySpawningSystem enemySpawningSystem;
-        private int enemiesAlive = 0;
-        private int dangerLevelLeft;
-        [SerializeField]
-        private int totalDangerLevel = 300;
         private List<BaseEnemy> allowedEnemies = new List<BaseEnemy>();
+        private List<BaseEnemy> enemiesToAdd = new List<BaseEnemy>();
         private Dictionary<BaseEnemy, float> enemyWeights;
         private float currentTotalEnemyWeight;
 
         [SerializeField]
         private float enemyHpIncrease;
-        //[SerializeField]
-        //private float minTimeBetweenSubwaves;
-        //[SerializeField]
-        //private float maxTimeBetweenSubwaves;
-        //[SerializeField]
-        //private float subWaveDangerPercentage;
-        //[SerializeField]
-        //private float nextWaveDangerLevelMultiplier;
         [SerializeField]
         private List<BaseEnemy> enemies;
 
@@ -46,8 +34,16 @@ namespace App.Systems.Wave
         public void Init(EnemySpawningSystem enemySpawningSystem)
         {
             this.enemySpawningSystem = enemySpawningSystem;
+            foreach (BaseEnemy enemy in enemies)
+                StartCoroutine(AddEnemyWithDelay(enemy, enemy.EnemyData.spawnStartTime));
             CalculateEnemyWeights();
             StartCoroutine(Wave());
+        }
+
+        public IEnumerator AddEnemyWithDelay(BaseEnemy enemy, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            enemiesToAdd.Add(enemy);
         }
 
         private void CalculateEnemyWeights()
@@ -63,12 +59,6 @@ namespace App.Systems.Wave
 
         public IEnumerator Wave()
         {
-            //dangerLevelLeft = totalDangerLevel;
-            //while(dangerLevelLeft > 0)
-            //{
-            //    SpawnSubWave();
-            //    yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
-            //}
             while(true) 
             {
                 BaseEnemy randomEnemy = getRandomEnemy();
@@ -94,7 +84,7 @@ namespace App.Systems.Wave
         {
             float randomWeight = Random.value * currentTotalEnemyWeight;
             //foreach(BaseEnemy enemy in allowedEnemies)
-            foreach (BaseEnemy enemy in enemies)
+            foreach (BaseEnemy enemy in allowedEnemies)
             {
                 if (enemyWeights[enemy] >= randomWeight)
                     return enemy;
@@ -103,25 +93,10 @@ namespace App.Systems.Wave
             return allowedEnemies[allowedEnemies.Count - 1];
         }
 
-        //private void CalculateNextDangerLevel()
-        //{
-        //    totalDangerLevel = (int)(totalDangerLevel * nextWaveDangerLevelMultiplier);
-        //}
-
         public void ReportKilled(string enemyType)
         {
-            //enemiesAlive--;
-            //if (dangerLevelLeft <= 0 && enemiesAlive <= 0)
-            //    EndWave();
+            
         }
-
-        //private void EndWave()
-        //{
-        //    Debug.Log("Wave ended");
-        //    waveNum++;
-        //    CalculateNextDangerLevel();
-        //    gameStatesSystem.RestingState();
-        //}
     }
 }
 
