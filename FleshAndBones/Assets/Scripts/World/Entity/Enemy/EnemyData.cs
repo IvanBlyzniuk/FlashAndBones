@@ -20,7 +20,7 @@ namespace App.World.Entity.Enemy
         public float spawnAnimationDuration;
         public int minMoneyDrop;
         public int maxMoneyDrop;
-        public MoneyDropItem moneyPrefab;
+        public ExperienceDropItem moneyPrefab;
         public HealingDropItem healingPrefab;
         public float minTimeBetweenGrunts = 10f;
         public float maxTimeBetweenGrunts = 15f;
