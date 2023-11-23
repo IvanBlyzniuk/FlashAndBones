@@ -129,7 +129,7 @@ namespace App.World.Entity.Enemy
             {
                 StopAllCoroutines();
                 stateMachine.ChangeState(dieState);
-                DropMoney();
+                DropExperience();
                 DropHealing();
                 OnDied?.CallDieEvent();
             }
@@ -141,17 +141,17 @@ namespace App.World.Entity.Enemy
             objectPool.ReturnToPool(this);
         }
 
-        private void DropMoney()
+        private void DropExperience()
         {
-            //if(Random.value <= enemyData.moneyDropChance)
-            //{
-            //    int count = Random.Range(enemyData.minMoneyDrop,enemyData.maxMoneyDrop + 1);
-            //    for(int i=0;i<count;i++)
-            //    {
-            //        GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
-            //        money.GetComponent<MoneyDropItem>().Init(transform.position);
-            //    }
-            //}
+            if (Random.value <= enemyData.moneyDropChance)
+            {
+                int count = Random.Range(enemyData.minMoneyDrop, enemyData.maxMoneyDrop + 1);
+                for (int i = 0; i < count; i++)
+                {
+                    GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
+                    money.GetComponent<ExperienceDropItem>().Init(transform.position);
+                }
+            }
         }
         private void DropHealing()
         {
