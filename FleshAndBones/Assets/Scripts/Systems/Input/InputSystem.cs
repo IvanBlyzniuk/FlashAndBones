@@ -27,8 +27,10 @@ namespace App.Systems.Input
 
         private bool HandlePauseInput()
         {
-            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
-
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) 
+                return pauser.IsPaused;
+            if (!pauser.enabled)
+                return true;
             if (pauser.IsPaused)
                 pauser.Unpause();
             else

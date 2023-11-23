@@ -173,7 +173,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7204901939567366426}
-  - {fileID: 3888338990505573262}
+  - {fileID: 385507433669475091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1285442474705961054
@@ -194,7 +194,7 @@ MonoBehaviour:
   enemySpawningSystem: {fileID: 7022968032058644639}
   inputSystem: {fileID: 4696133012735505868}
   waveSystem: {fileID: 1950550801357636187}
---- !u!1 &7433649767357910181
+--- !u!1 &4121627942120471465
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,8 +202,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3888338990505573262}
-  - component: {fileID: 5614167355694794699}
+  - component: {fileID: 385507433669475091}
+  - component: {fileID: 4939996167166670876}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -211,13 +211,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3888338990505573262
+--- !u!4 &385507433669475091
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7433649767357910181}
+  m_GameObject: {fileID: 4121627942120471465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -226,13 +226,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8977547626618041072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5614167355694794699
+--- !u!114 &4939996167166670876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7433649767357910181}
+  m_GameObject: {fileID: 4121627942120471465}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948b325426352a542980ee68faf5fe16, type: 3}
