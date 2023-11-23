@@ -10,7 +10,7 @@ namespace App.World.Entity.Enemy
         public string type;
         public int maxHealth;
         public int dangerLevel;
-        public int firstSpawningWave;
+        public int spawnStartTime;
         public float speed;
         public float damage;
         public float timeBetweenAttacks;
