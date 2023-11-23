@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿using App.World.Entity.Player.PlayerComponents;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace App.Upgrades
 {
@@ -9,15 +15,7 @@ namespace App.Upgrades
 
         where UpgradableEntity : IUpgradable
     {
-        [SerializeField] private string upgradeName;
-        [SerializeField] private string description;
-        [SerializeField] private Sprite image;
-
-        public Sprite Image => image;
-
-        public string Name => upgradeName;
-
-        public string Description => description;
+        public abstract string Description { get; }
 
         public abstract bool IsComplete { get; }
 

@@ -9,7 +9,7 @@ namespace App.Upgrades
     {
         #region Fields
         private Dictionary<Type, IUpgradeAbstractVisitor> upgrades; 
-        private Dictionary<Type, IUpdatableUpgradeVisitor> updatableUpdates; 
+        private Dictionary<Type, IUpdatableUpgrade> updatableUpdates; 
         private IUpgradable upgradableEntity;
         #endregion
 
@@ -65,14 +65,12 @@ namespace App.Upgrades
 
         public void AddUpgrade(IUpgradeAbstractVisitor upgrade)
         {
-            if (upgrade is IUpdatableUpgradeVisitor)
+            if (upgrade is IUpdatableUpgrade)
             {
-                Debug.Log("Updatable added");
-                updatableUpdates.Add(upgrade.GetType(), upgrade as IUpdatableUpgradeVisitor);
+                updatableUpdates.Add(upgrade.GetType(), upgrade as IUpdatableUpgrade);
             }
             else
             {
-                Debug.Log("Non-Updatable added");
                 upgrades.Add(upgrade.GetType(), upgrade);
             }
 
@@ -96,7 +94,7 @@ namespace App.Upgrades
             upgradeToLevelUp.LevelUp();
         }
 
-        public IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
+        private IUpgradeAbstractVisitor FindUpgrade(IUpgradeAbstractVisitor upgrade)
         {
 
             if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor upgradeToLevelUp))

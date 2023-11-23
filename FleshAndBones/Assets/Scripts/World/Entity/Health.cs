@@ -16,7 +16,8 @@ namespace App.World.Entity
         private Dictionary<SpriteRenderer,Color> spriteRenderers;
         private List<SpriteRenderer> toDelete;
         private Coroutine blinkRoutine;
-        public ValueUpdateEvent healthUpdateEvent;
+        [SerializeField]
+        private ValueUpdateEvent healthUpdateEvent;
 
 
         public float CurrentHealth 

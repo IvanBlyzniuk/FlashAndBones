@@ -41,21 +41,14 @@ namespace App.World.Entity.Enemy.States
             yield return new WaitForSeconds(baseEnemy.EnemyData.timeBetweenAttacks);
 
             RangedEnemy rangedEnemy = (RangedEnemy)baseEnemy;
-            Vector3 lookDirection = (baseEnemy.Target.position - rangedEnemy.ShootPosition.position).normalized;
-            Vector3 direction = Quaternion.Euler(0, 0, (rangedEnemy.ProjectileCount - 1) / 2.0f * -rangedEnemy.AngleBetweenProjectiles) * lookDirection;
+            GameObject projectileObject = objectPool.GetObjectFromPool(rangedEnemy.Projectile.PoolObjectType, rangedEnemy.Projectile.gameObject, rangedEnemy.transform.position).GetGameObject();
 
-            Quaternion rotation = Quaternion.Euler(0, 0, rangedEnemy.AngleBetweenProjectiles);
-            for (int i = 0; i < rangedEnemy.ProjectileCount; i++, direction = rotation * direction)
-            {
-                GameObject projectileObject = objectPool.GetObjectFromPool(rangedEnemy.Projectile.PoolObjectType, rangedEnemy.Projectile.gameObject, rangedEnemy.ShootPosition.position).GetGameObject();
-                
-                EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
-                projectile.Init(rangedEnemy.ShootPosition.position, direction);
+            Vector3 direction = (baseEnemy.Target.position - baseEnemy.transform.position).normalized;
+            EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
+            projectile.Init(baseEnemy.transform.position,direction);
 
-                DamagePlayer projectileDamage = projectileObject.GetComponent<DamagePlayer>();
-                projectileDamage.Init(baseEnemy.EnemyData.damage);
-            }
-            
+            DamagePlayer projectileDamage = projectileObject.GetComponent<DamagePlayer>();
+            projectileDamage.Init(baseEnemy.EnemyData.damage);
             yield return new WaitForSeconds(0.1f);
 
             stateMachine.ChangeState(baseEnemy.FollowState);

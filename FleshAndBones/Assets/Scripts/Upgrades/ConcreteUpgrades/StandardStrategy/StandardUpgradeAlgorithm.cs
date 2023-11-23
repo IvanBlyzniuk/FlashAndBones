@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+using System;
+using System.Collections.Generic;
 
 namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
 {
@@ -11,8 +13,8 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         private UpgradableEntity upgradableEntity;
 
         public bool IsComplete => levelManager.IsComplete;
+
         public bool IsEnabled => (upgradableEntity != null);
-        public UpgradableEntity CurrentUpgradableEntity => upgradableEntity;
 
         public StandardUpgradeAlgorithm(IStrategy<UpgradableEntity, LevelType> strategy, List<LevelType> levelSet)
         {
@@ -23,6 +25,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         public void Disable()
         {
             strategy.Reset(upgradableEntity);
+            strategy.Destroy();
             upgradableEntity = null;
         }
 

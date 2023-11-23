@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Acid Slime
   maxHealth: 25
-  dangerLevel: 15
-  spawnStartTime: 90
-  speed: 3
+  dangerLevel: 8
+  firstSpawningWave: 3
+  speed: 5
   damage: 10
-  timeBetweenAttacks: 0.8
+  timeBetweenAttacks: 1.5
+  moneyDropChance: 0.3
   healingDropChance: 0.05
-  attackRange: 5
-  spawnAnimationDuration: 0.1
-  minExpDrop: 4
-  maxExpDrop: 5
-  experiencePrefab: {fileID: 6642675431083187388, guid: 07d0bccbc4e641649b4a66e8addc7d87, type: 3}
-  healingPrefab: {fileID: 4350639347114633194, guid: 237d3dce2e3abef4da7cfcff04588693, type: 3}
+  attackRange: 10
+  spawnAnimationDuration: 1
+  minMoneyDrop: 2
+  maxMoneyDrop: 3
+  moneyPrefab: {fileID: 5133134966575723053, guid: fe6f5b7162ee8c14687e14c18b6b84a9, type: 3}
+  healingPrefab: {fileID: 5726524925912292538, guid: 80e810be8149c62469658e555a2fe1cb, type: 3}
   minTimeBetweenGrunts: 10
   maxTimeBetweenGrunts: 15
   gruntSounds: []
   attackSounds: []
-  experienceForKill: 10

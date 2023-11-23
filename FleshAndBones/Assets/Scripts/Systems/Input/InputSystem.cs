@@ -27,10 +27,8 @@ namespace App.Systems.Input
 
         private bool HandlePauseInput()
         {
-            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) 
-                return pauser.IsPaused;
-            if (!pauser.enabled)
-                return true;
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
+
             if (pauser.IsPaused)
                 pauser.Unpause();
             else
@@ -92,7 +90,7 @@ namespace App.Systems.Input
         {
             if (UnityEngine.Input.GetMouseButton(0))
             {
-                //Debug.Log("Shooting");
+                Debug.Log("Shooting");
                 player.Weapon.ShootEvent.CallShootEvent();
             }
         }

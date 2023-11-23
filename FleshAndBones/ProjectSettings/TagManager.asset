@@ -18,9 +18,9 @@ TagManager:
   - EnemyAttack
   - PlayerInteractor
   - EnemyCollider
-  - Background
-  - CameraConfiner
-  - Grass
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: WorldLayer
-    uniqueID: 4172696301
     locked: 0

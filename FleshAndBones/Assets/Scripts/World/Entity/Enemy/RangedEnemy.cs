@@ -10,19 +10,8 @@ namespace World.Entity.Enemy
     {
         [SerializeField]
         private EnemyProjectile projectile;
-        [SerializeField]
-        private Transform shootPosition;
-        [SerializeField]
-        private int projectileCount;
-        [SerializeField]
-        private float angleBetweenProjectiles;
-
-        public int ProjectileCount => projectileCount;
-        public float AngleBetweenProjectiles => angleBetweenProjectiles;
 
         public EnemyProjectile Projectile => projectile;
-
-        public Transform ShootPosition => shootPosition;
 
         public override void Awake()
         {

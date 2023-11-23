@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8215830592351423376}
   - component: {fileID: 8653687507921555662}
   - component: {fileID: 2576331289706172427}
-  - component: {fileID: 4920366175005569506}
   m_Layer: 0
   m_Name: Giant Zombie
   m_TagString: Untagged
@@ -112,7 +111,6 @@ MonoBehaviour:
   myColliders:
   - {fileID: 293603593126321914}
   - {fileID: 5974847508800318036}
-  dieEvent: {fileID: 4920366175005569506}
   attack: {fileID: 4945115489950861265}
 --- !u!70 &293603593126321914
 CapsuleCollider2D:
@@ -307,18 +305,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4920366175005569506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730610894290883209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594a3b1678d10254ab9fe902a587dd72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5340709764512762513
 GameObject:
   m_ObjectHideFlags: 0

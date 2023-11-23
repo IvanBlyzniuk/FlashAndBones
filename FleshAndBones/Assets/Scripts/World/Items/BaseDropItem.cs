@@ -25,7 +25,7 @@ namespace App.World.Items
         {
             float xDirection = Random.Range(-1f, 1f);
             float yDirection = Random.Range(-1f, 1f);
-            float speed = Random.Range(5f, 10f);
+            float speed = Random.Range(10f, 30f);
             Vector2 dropDirection = new Vector2(xDirection, yDirection).normalized;
             rigidBody.velocity = new Vector3(dropDirection.x * speed, dropDirection.y * speed, 0f);
         }
