@@ -9,9 +9,15 @@ namespace App.Upgrades
 
         where UpgradableEntity : IUpgradable
     {
-        public abstract Sprite Image { get; }
+        [SerializeField] private string upgradeName;
+        [SerializeField] private string description;
+        [SerializeField] private Sprite image;
 
-        public abstract string Description { get; }
+        public Sprite Image => image;
+
+        public string Name => upgradeName;
+
+        public string Description => description;
 
         public abstract bool IsComplete { get; }
 
