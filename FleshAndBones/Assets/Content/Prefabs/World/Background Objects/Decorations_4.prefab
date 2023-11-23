@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9091145114615654453}
   - component: {fileID: 3840648332601846416}
   - component: {fileID: 8963490051497482902}
-  - component: {fileID: 1139163281424452549}
+  - component: {fileID: -8368483935167456699}
   m_Layer: 15
   m_Name: Decorations_4
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5ab60ed261f97488300beedc98001a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1139163281424452549
+--- !u!58 &-8368483935167456699
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

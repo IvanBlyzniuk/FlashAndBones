@@ -11,11 +11,23 @@ namespace App.World.BackgroundObjects
         void Start()
         {
             animator = GetComponent<Animator>();
+            animator.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             animator.Play("Moving");
+            
+        }
+
+        private void OnBecameInvisible()
+        {
+            animator.enabled = false;
+        }
+
+        private void OnBecameVisible()
+        {
+            animator.enabled = true;
         }
     }
 }
