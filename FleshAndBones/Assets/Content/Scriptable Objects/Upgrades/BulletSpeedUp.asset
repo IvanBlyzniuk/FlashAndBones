@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1203bee41570b408aae12297f46572, type: 3}
   m_Name: BulletSpeedUp
   m_EditorClassIdentifier: 
-  description: Bullet Speed Up Description
+  upgrade_name: Fast Bullets
+  description: Makes your bullets fly blazingly fast
+  image: {fileID: 21300000, guid: e89d204b98653e94394fcad48b298ee2, type: 3}
+  description: Makes your bullets fly faster!
   levels:
   - bulletFlySpeedMultiplier: 1
-  - bulletFlySpeedMultiplier: 1.74
-  - bulletFlySpeedMultiplier: 2.95
-  - bulletFlySpeedMultiplier: 5.42
-  - bulletFlySpeedMultiplier: 7.91
-  - bulletFlySpeedMultiplier: 10

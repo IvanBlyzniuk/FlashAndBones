@@ -15,19 +15,19 @@ MonoBehaviour:
   type: Basic Zombie
   maxHealth: 25
   dangerLevel: 5
-  firstSpawningWave: 1
-  speed: 0
+  spawnStartTime: 0
+  speed: 3
   damage: 10
   timeBetweenAttacks: 0.3
-  moneyDropChance: 0.2
   healingDropChance: 0.05
-  attackRange: 1.8
-  spawnAnimationDuration: 1
-  minMoneyDrop: 1
-  maxMoneyDrop: 3
-  moneyPrefab: {fileID: 5133134966575723053, guid: fe6f5b7162ee8c14687e14c18b6b84a9, type: 3}
-  healingPrefab: {fileID: 5726524925912292538, guid: 80e810be8149c62469658e555a2fe1cb, type: 3}
+  attackRange: 0.76
+  spawnAnimationDuration: 0.1
+  minExpDrop: 1
+  maxExpDrop: 3
+  experiencePrefab: {fileID: 6642675431083187388, guid: 07d0bccbc4e641649b4a66e8addc7d87, type: 3}
+  healingPrefab: {fileID: 4350639347114633194, guid: 237d3dce2e3abef4da7cfcff04588693, type: 3}
   minTimeBetweenGrunts: 10
   maxTimeBetweenGrunts: 15
   gruntSounds: []
   attackSounds: []
+  experienceForKill: 20

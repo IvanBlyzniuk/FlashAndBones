@@ -39,7 +39,7 @@ namespace App.World.Entity.Enemy
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Return projectile to pool");
+            //Debug.Log("Return projectile to pool");
             objectPool.ReturnToPool(this);
         }
     }
