@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Acid Slime
   maxHealth: 25
-  dangerLevel: 8
-  firstSpawningWave: 3
-  speed: 5
+  dangerLevel: 15
+  spawnStartTime: 0
+  speed: 3
   damage: 10
-  timeBetweenAttacks: 1.5
+  timeBetweenAttacks: 0.8
   moneyDropChance: 0.3
   healingDropChance: 0.05
-  attackRange: 10
-  spawnAnimationDuration: 1
+  attackRange: 5
+  spawnAnimationDuration: 0.1
   minMoneyDrop: 2
   maxMoneyDrop: 3
   moneyPrefab: {fileID: 0}

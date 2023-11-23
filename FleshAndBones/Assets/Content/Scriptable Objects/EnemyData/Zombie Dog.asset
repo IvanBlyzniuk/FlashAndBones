@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73b438949dae3c49a5db8d3778dec90, type: 3}
-  m_Name: Giant Roach
+  m_Name: Zombie Dog
   m_EditorClassIdentifier: 
-  type: Giant Roach
-  maxHealth: 3
-  dangerLevel: 2
-  firstSpawningWave: 2
-  speed: 8
+  type: Zombie Dog
+  maxHealth: 25
+  dangerLevel: 10
+  spawnStartTime: 0
+  speed: 5
   damage: 5
   timeBetweenAttacks: 0.2
   moneyDropChance: 0.05
   healingDropChance: 0.01
-  attackRange: 1.5
-  spawnAnimationDuration: 1
+  attackRange: 0.4
+  spawnAnimationDuration: 0.1
   minMoneyDrop: 1
   maxMoneyDrop: 1
   moneyPrefab: {fileID: 0}

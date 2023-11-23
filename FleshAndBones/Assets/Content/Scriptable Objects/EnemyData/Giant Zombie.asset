@@ -22,7 +22,7 @@ MonoBehaviour:
   moneyDropChance: 1
   healingDropChance: 0.1
   attackRange: 2.5
-  spawnAnimationDuration: 1
+  spawnAnimationDuration: 0.1
   minMoneyDrop: 5
   maxMoneyDrop: 10
   moneyPrefab: {fileID: 0}

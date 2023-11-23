@@ -10,7 +10,7 @@ namespace App.World.Entity.Enemy
         public string type;
         public int maxHealth;
         public int dangerLevel;
-        public int firstSpawningWave;
+        public int spawnStartTime;
         public float speed;
         public float damage;
         public float timeBetweenAttacks;
@@ -20,7 +20,7 @@ namespace App.World.Entity.Enemy
         public float spawnAnimationDuration;
         public int minMoneyDrop;
         public int maxMoneyDrop;
-        public MoneyDropItem moneyPrefab;
+        public ExperienceDropItem moneyPrefab;
         public HealingDropItem healingPrefab;
         public float minTimeBetweenGrunts = 10f;
         public float maxTimeBetweenGrunts = 15f;
