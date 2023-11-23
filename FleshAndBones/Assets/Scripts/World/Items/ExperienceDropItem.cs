@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace App.World.Items
 {
-    public class MoneyDropItem : BaseDropItem
+    public class ExperienceDropItem : BaseDropItem
     {
         [SerializeField]
-        private int price;
+        private int experience;
 
-        public override string PoolObjectType => "SmallMoney";
+        public override string PoolObjectType => "Experience";
 
         public override void Init(Vector3 position)
         {
@@ -18,8 +18,9 @@ namespace App.World.Items
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            collision.gameObject.GetComponent<Player>().Money += price;
-            objectPool.ReturnToPool(this);
+            Debug.Log(collision.name);
+            collision.gameObject.GetComponentInParent<Level>().IncreaseExperience(experience);
+           // objectPool.ReturnToPool(this);
         }
     }
 }
