@@ -1,7 +1,7 @@
 using App.Upgrades;
 using App.World.Entity.Player.Events;
 using App.World.Entity.Player.PlayerComponents;
-using System;
+using App.World.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +12,7 @@ public class UpgradeChooser : MonoBehaviour
     [SerializeField] private UpgradeChoiceItem item1;
     [SerializeField] private UpgradeChoiceItem item2;
     [SerializeField] private UpgradeChoiceItem item3;
+    [SerializeField] private Pauser pauser;
 
     [SerializeField] private UpgradeManager playerUpgradeManager;
     [SerializeField] private Level playerLevel;
@@ -41,6 +42,7 @@ public class UpgradeChooser : MonoBehaviour
 
     public void Appear()
     {
+        pauser.enabled = false;
         SetNextUpgrades();
         Show(view);
         SubscribeEvents();
@@ -49,6 +51,7 @@ public class UpgradeChooser : MonoBehaviour
 
     public void Disappear()
     {
+        pauser.enabled = true;
         Hide(view);
         RenewTime();
     }
