@@ -28,10 +28,18 @@ namespace App.World.Entity.Player.Weapons
                 return;
             }
 
+            BaseEnemy enemy = collision.GetComponent<BaseEnemy>();
+            if (enemy != null)
+            {    
+                ApplySlowEffect(enemy);
+            }
+
             if (Random.Range(1, 11) * accuracy < 6)
             {
                 return; // Bullet misses
             }
+
+            
 
             Health targetHealt = collision.GetComponent<Health>();
             if (targetHealt == null)
@@ -39,9 +47,11 @@ namespace App.World.Entity.Player.Weapons
                 return;
             }
             targetHealt.TakeDamage(damage);
-            float lifeSteal = damage * lifeStealAmount.lifeStealAmount;
-            lifeStealAmount.player.Health.Heal(lifeSteal);
-
+            if (lifeStealAmount != null)
+            {
+                float lifeSteal = damage * lifeStealAmount.lifeStealAmount;
+                lifeStealAmount.player.Health.Heal(lifeSteal);
+            }
 
             if (pearcingCount > 0)
             {
@@ -52,11 +62,7 @@ namespace App.World.Entity.Player.Weapons
                 objectPool.ReturnToPool(this);
             }
 
-            BaseEnemy enemy = collision.GetComponent<BaseEnemy>();
-            if (enemy != null)
-            {
-                ApplySlowEffect(enemy);
-            }
+            
 
         }
         public virtual void Init(float damage, int pearcingCount, float accuracy, LifeStealInfo lifeStealAmount, SlowEffectInfo slowEffect)
@@ -88,10 +94,8 @@ namespace App.World.Entity.Player.Weapons
 
         private void ApplySlowEffect(BaseEnemy enemy)
         {
-            if (slowEffect.slowMultiplier > 0 && slowEffect.slowDuration > 0)
-            {
-                enemy.ApplySlow(slowEffect.slowMultiplier, slowEffect.slowDuration);
-            }
+            enemy.ApplySlow(slowEffect.slowMultiplier, slowEffect.slowDuration);
+
         }
 
     }

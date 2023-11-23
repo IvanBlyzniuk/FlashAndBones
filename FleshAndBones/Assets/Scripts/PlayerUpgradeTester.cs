@@ -50,10 +50,7 @@ public class PlayerUpgradeTester : MonoBehaviour
             Debug.Log($"Upgrade leveled up: {upgradeToTest.GetType()}");
             upgradeToTest.LevelUp();
         }
-        else if (upgradeToTest.IsComplete)
-        {
-            Debug.Log("Upgrade is complete.");
-        }
+      
 
         if (Input.GetKeyDown(disableUpgradeKey) && upgradeToTest.IsEnabled)
         {

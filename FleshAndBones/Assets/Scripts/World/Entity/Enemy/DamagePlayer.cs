@@ -46,6 +46,6 @@ public class DamagePlayer : MonoBehaviour
 
     private void PlayDodgeEffect()
     {
-        Debug.Log("Player dodged the attack!");
+        //Debug.Log("Player dodged the attack!");
     }
 }

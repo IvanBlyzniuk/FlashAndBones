@@ -24,7 +24,7 @@ namespace App.World.Entity.Player.Weapons
                     bullet.transform.position = ShootPosition.position;
                     bullet.GetComponent<BaseBullet>().Init(damage,PearcingCount, accuracy, lifeStealAmount, SlowEffect);
                     bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletFlySpeed;
-                    Debug.Log("Bullet");
+                   // Debug.Log("Bullet");
                 }
                 audioSource.PlayOneShot(shootSound);
                 timeFromCoolDown = 0.0f;

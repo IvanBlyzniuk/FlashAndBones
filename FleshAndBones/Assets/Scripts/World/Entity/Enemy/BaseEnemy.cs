@@ -181,12 +181,12 @@ namespace App.World.Entity.Enemy
         private IEnumerator SlowDownCoroutine(float multiplier, float duration)
         {
             float originalSpeed = MyRigidbody.velocity.magnitude;
-            Vector2 originalVelocity = MyRigidbody.velocity;
             MyRigidbody.velocity *= multiplier;
-
+            Debug.Log($"Original speed {originalSpeed}");
             yield return new WaitForSeconds(duration);
-
-            MyRigidbody.velocity = originalVelocity.normalized * originalSpeed;
+            Debug.Log($"New speed {MyRigidbody.velocity.magnitude}");
+            MyRigidbody.velocity = MyRigidbody.velocity.normalized * originalSpeed;
+           
         }
 
     }

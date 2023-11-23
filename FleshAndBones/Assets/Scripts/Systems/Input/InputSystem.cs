@@ -90,7 +90,7 @@ namespace App.Systems.Input
         {
             if (UnityEngine.Input.GetMouseButton(0))
             {
-                Debug.Log("Shooting");
+                //Debug.Log("Shooting");
                 player.Weapon.ShootEvent.CallShootEvent();
             }
         }
