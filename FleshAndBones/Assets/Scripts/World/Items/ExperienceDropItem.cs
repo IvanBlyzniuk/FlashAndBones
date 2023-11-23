@@ -27,7 +27,8 @@ namespace App.World.Items
                 {
                     shouldBeCollected = false;
                     player.GetComponent<Level>().IncreaseExperience(experience);
-                    Destroy(this.gameObject); // TODO change for object pool
+                    ReturnToPool();
+                    //Destroy(this.gameObject); // TODO change for object pool
                 }
             }
         }

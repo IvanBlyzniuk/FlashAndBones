@@ -65,26 +65,6 @@ namespace App.World.Entity.Enemy
             dieState = new DieState(this,stateMachine);
         }
 
-        private Level playerLevel;
-        private void PlayerExperienceGain(DieEvent e)
-            => playerLevel.IncreaseExperience(ExperienceForKill());
-
-        private void Start()
-        {
-            var player = GameObject.FindGameObjectsWithTag("Player")[0];
-            playerLevel = player.GetComponent<Level>();
-        }
-
-        private void OnEnable()
-        {
-            OnDied.OnDied += PlayerExperienceGain;
-        }
-
-        private void OnDisable()
-        {
-            OnDied.OnDied -= PlayerExperienceGain;
-        }
-
         void Update()
         {
             if(initialised)
@@ -143,14 +123,11 @@ namespace App.World.Entity.Enemy
 
         private void DropExperience()
         {
-            if (Random.value <= enemyData.moneyDropChance)
+            int count = Random.Range(enemyData.minExpDrop, enemyData.maxExpDrop + 1);
+            for (int i = 0; i < count; i++)
             {
-                int count = Random.Range(enemyData.minMoneyDrop, enemyData.maxMoneyDrop + 1);
-                for (int i = 0; i < count; i++)
-                {
-                    GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
-                    money.GetComponent<ExperienceDropItem>().Init(transform.position);
-                }
+                GameObject money = objectPool.GetObjectFromPool(enemyData.experiencePrefab.PoolObjectType, enemyData.experiencePrefab.gameObject, transform.position).GetGameObject();
+                money.GetComponent<ExperienceDropItem>().Init(transform.position);
             }
         }
         private void DropHealing()
