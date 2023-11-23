@@ -44,7 +44,8 @@ public class UpgradeChooser : MonoBehaviour
     {
         pauser.enabled = false;
         SetNextUpgrades();
-        Show(view);
+        //Show(view);
+        view.GetComponent<Animator>().Play("Appear");
         SubscribeEvents();
         StopTime();
     }
@@ -52,7 +53,8 @@ public class UpgradeChooser : MonoBehaviour
     public void Disappear()
     {
         pauser.enabled = true;
-        Hide(view);
+        //Hide(view);
+        view.GetComponent<Animator>().Play("Disappear");
         RenewTime();
     }
 
