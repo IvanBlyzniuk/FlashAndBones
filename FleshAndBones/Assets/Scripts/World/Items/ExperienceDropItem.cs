@@ -7,20 +7,43 @@ namespace App.World.Items
     {
         [SerializeField]
         private int experience;
+        [SerializeField]
+        private float flightSpeed;
+
+        private bool shouldBeCollected;
+
+        private GameObject player;
+
 
         public override string PoolObjectType => "Experience";
 
+        private void Update()
+        {
+            if (shouldBeCollected && player != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, flightSpeed * Time.deltaTime);
+
+                if ((transform.position - player.transform.position).magnitude < 0.5f)
+                {
+                    shouldBeCollected = false;
+                    player.GetComponent<Level>().IncreaseExperience(experience);
+                    Destroy(this.gameObject); // TODO change for object pool
+                }
+            }
+        }
+
         public override void Init(Vector3 position)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+            shouldBeCollected = false;
             base.Init(position);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Debug.Log(collision.name);
-            collision.gameObject.GetComponentInParent<Level>().IncreaseExperience(experience);
-           // objectPool.ReturnToPool(this);
+            shouldBeCollected = true;
+            player = collision.transform.parent.gameObject;
+          
         }
     }
 }

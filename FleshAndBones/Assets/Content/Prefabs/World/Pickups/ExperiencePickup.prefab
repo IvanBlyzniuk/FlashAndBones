@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4fbb13eff150d44aa7c36494146a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
+  experience: 10
+  flightSpeed: 5
 --- !u!212 &69224737406881987
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,9 +155,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00999999, y: 0.06999999}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 2.89
 --- !u!96 &6120891815523338581
 TrailRenderer:
   serializedVersion: 3
