@@ -19,7 +19,7 @@ TagManager:
   - PlayerInteractor
   - EnemyCollider
   - Background
-  - 
+  - CameraConfiner
   - 
   - 
   - 
