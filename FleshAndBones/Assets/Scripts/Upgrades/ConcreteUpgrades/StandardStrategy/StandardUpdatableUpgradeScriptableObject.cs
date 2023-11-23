@@ -10,8 +10,6 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         where UpgradableEntity : class, IUpgradable
     {
         #region Serialized Fields
-        [SerializeField] private string description;
-        [SerializeField] private Sprite image;
         [SerializeField] private List<LevelType> levels;
         #endregion
 
@@ -20,8 +18,6 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
         #endregion
 
         #region Properties
-        public override Sprite Image => image;
-        public override string Description => description;
         public override bool IsComplete => upgradeAlgorithm.IsComplete;
         public override bool IsEnabled => upgradeAlgorithm.IsEnabled;
         #endregion

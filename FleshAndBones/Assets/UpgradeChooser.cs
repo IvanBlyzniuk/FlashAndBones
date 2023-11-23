@@ -141,9 +141,9 @@ public class UpgradeChooser : MonoBehaviour
         item2.OnUpgradeCompleted += OnUpgradeCompleted;
         item3.OnUpgradeCompleted += OnUpgradeCompleted;
 
-        item1.OnChosen.AddListener(Disappear);
-        item2.OnChosen.AddListener(Disappear);
-        item3.OnChosen.AddListener(Disappear);
+        item1.OnChosen?.AddListener(Disappear);
+        item2.OnChosen?.AddListener(Disappear);
+        item3.OnChosen?.AddListener(Disappear);
 
         playerLevel.OnLevelUp.OnValueUpdate += OnLevelUp;
     }
@@ -154,9 +154,9 @@ public class UpgradeChooser : MonoBehaviour
         item2.OnUpgradeCompleted -= OnUpgradeCompleted;
         item3.OnUpgradeCompleted -= OnUpgradeCompleted;
 
-        item1.OnChosen.RemoveListener(Disappear);
-        item2.OnChosen.RemoveListener(Disappear);
-        item3.OnChosen.RemoveListener(Disappear);
+        item1.OnChosen?.RemoveListener(Disappear);
+        item2.OnChosen?.RemoveListener(Disappear);
+        item3.OnChosen?.RemoveListener(Disappear);
 
         playerLevel.OnLevelUp.OnValueUpdate -= OnLevelUp;
     }
