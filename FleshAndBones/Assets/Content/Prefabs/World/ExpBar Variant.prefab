@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 190.86543
       objectReference: {fileID: 0}
+    - target: {fileID: 6721834372729904310, guid: 10d4571df2c80734587eb6852583e1b9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2109108244, guid: e8b5d8492c5b3ec4daa0d8129d21b3d2, type: 3}
     - target: {fileID: 9167471972487571642, guid: 10d4571df2c80734587eb6852583e1b9, type: 3}
       propertyPath: m_Name
       value: ExpBar Variant
