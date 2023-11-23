@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399677f4fd6af934490cc10d6ab69158, type: 3}
   m_Name: WeaponDataSO
   m_EditorClassIdentifier: 
-  damage: 5
-  coolDown: 0.5
+  damage: 10
+  coolDown: 0.2
   bulletFlySpeed: 5
   bulletSpread: 5
   pearcingCount: 0
