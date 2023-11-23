@@ -14,6 +14,16 @@ namespace App.Systems.Wave
         private List<BaseEnemy> enemiesToAdd = new List<BaseEnemy>();
         private Dictionary<BaseEnemy, float> enemyWeights;
         private float currentTotalEnemyWeight;
+        private float enemyHpMultiplier = 1f;
+
+        [SerializeField]
+        private float minTimeBetweenSubwaves;
+        [SerializeField]
+        private float maxTimeBetweenSubwaves;
+        [SerializeField]
+        private float subWaveDangerLevel;
+        [SerializeField]
+        private float subWaveSizeIncrease;
 
         [SerializeField]
         private float enemyHpIncrease;
@@ -22,20 +32,19 @@ namespace App.Systems.Wave
 
         public void StartWave()
         {
-            //allowedEnemies = enemies.FindAll(e => e.EnemyData.firstSpawningWave <= waveNum);
-            //currentTotalEnemyWeight = 0;
-            //foreach (BaseEnemy enemy in allowedEnemies)
-            //{
-            //    currentTotalEnemyWeight += enemyWeights[enemy];
-            //}
-            //StartCoroutine(Wave());
+            
         }
 
         public void Init(EnemySpawningSystem enemySpawningSystem)
         {
             this.enemySpawningSystem = enemySpawningSystem;
             foreach (BaseEnemy enemy in enemies)
-                StartCoroutine(AddEnemyWithDelay(enemy, enemy.EnemyData.spawnStartTime));
+            {
+                if(enemy.EnemyData.spawnStartTime > 0)
+                    StartCoroutine(AddEnemyWithDelay(enemy, enemy.EnemyData.spawnStartTime));
+                else
+                    allowedEnemies.Add(enemy);
+            }
             CalculateEnemyWeights();
             StartCoroutine(Wave());
         }
@@ -48,6 +57,7 @@ namespace App.Systems.Wave
 
         private void CalculateEnemyWeights()
         {
+            currentTotalEnemyWeight = 0;
             enemyWeights = new Dictionary<BaseEnemy, float>();
             foreach(BaseEnemy enemy in enemies)
             {
@@ -61,29 +71,33 @@ namespace App.Systems.Wave
         {
             while(true) 
             {
-                BaseEnemy randomEnemy = getRandomEnemy();
-                enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 /* + hp multiplier */);
-                yield return new WaitForSeconds(1);
+                if(enemiesToAdd.Count > 0)
+                {
+                    allowedEnemies.AddRange(enemiesToAdd);
+                    enemiesToAdd.Clear();
+                    CalculateEnemyWeights();
+                }
+                SpawnSubWave();
+                subWaveDangerLevel *= 1 + subWaveSizeIncrease;
+                enemyHpMultiplier *= 1 + enemyHpIncrease;
+                yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
             }
         }
 
-        //private void SpawnSubWave()
-        //{
-        //    int dangerDiff = (int)(totalDangerLevel * subWaveDangerPercentage);
-        //    int startingDangerLevel = dangerLevelLeft;
-        //    while(dangerLevelLeft > startingDangerLevel - dangerDiff)
-        //    {
-        //        BaseEnemy randomEnemy = getRandomEnemy();
-        //        enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + waveNum * enemyHpIncrease);
-        //        dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
-        //        enemiesAlive++;
-        //    }
-        //}
+        private void SpawnSubWave()
+        {
+            float dangerLevelLeft = subWaveDangerLevel;
+            while (dangerLevelLeft > 0)
+            {
+                BaseEnemy randomEnemy = getRandomEnemy();
+                enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + enemyHpMultiplier);
+                dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
+            }
+        }
 
         private BaseEnemy getRandomEnemy()
         {
             float randomWeight = Random.value * currentTotalEnemyWeight;
-            //foreach(BaseEnemy enemy in allowedEnemies)
             foreach (BaseEnemy enemy in allowedEnemies)
             {
                 if (enemyWeights[enemy] >= randomWeight)
