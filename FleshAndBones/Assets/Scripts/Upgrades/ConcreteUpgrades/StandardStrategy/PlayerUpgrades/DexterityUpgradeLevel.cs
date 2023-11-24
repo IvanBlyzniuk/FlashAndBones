@@ -6,7 +6,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
     [System.Serializable]
     public struct DexterityUpgradeLevel
     {
-        [Range(0f, 1f)] public float dodgeChanceIncrease;
+        [Range(0f, 2f)] public float dodgeChanceIncrease;
     }
 
     [CreateAssetMenu(fileName = "DexterityUpgrade", menuName = "Scriptable Objects/Upgrades/DexterityUpgrade")]
