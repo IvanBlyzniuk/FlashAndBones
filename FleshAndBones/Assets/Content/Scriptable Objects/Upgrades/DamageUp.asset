@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1987539a804de05489eb404d830db77e, type: 3}
   m_Name: DamageUp
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Damage Up
+  description: Increases damage
+  image: {fileID: 21300000, guid: 2861ca1eabbfe4a44b2c62a88ea117e0, type: 3}
+  levels:
+  - damageIncrease: 10
+  - damageIncrease: 20
+  - damageIncrease: 30

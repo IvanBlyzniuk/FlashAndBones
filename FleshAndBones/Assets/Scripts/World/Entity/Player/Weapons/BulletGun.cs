@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace App.World.Entity.Player.Weapons
 {
     public class BulletGun : Weapon
     {
+        public event Action<BaseBullet> OnBulletSpawned;
         
         public override void Shoot()
         {
@@ -17,13 +19,14 @@ namespace App.World.Entity.Player.Weapons
                 }
                 for (int i = 0; i < bulletCount; i++)
                 {
-                    float spread = Random.Range(-bulletSpread, bulletSpread);
+                    float spread = UnityEngine.Random.Range(-bulletSpread, bulletSpread);
                     Quaternion rotation = Quaternion.Euler(ShootPosition.eulerAngles.x, ShootPosition.eulerAngles.y, ShootPosition.eulerAngles.z + spread);
                     GameObject bullet = objectPool.GetObjectFromPool(bulletScript.PoolObjectType, bulletPrefab, ShootPosition.position).GetGameObject();
                     bullet.transform.rotation = rotation;
                     bullet.transform.position = ShootPosition.position;
                     bullet.GetComponent<BaseBullet>().Init(damage,PearcingCount);
                     bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletFlySpeed;
+                    OnBulletSpawned?.Invoke(bullet.GetComponent<BaseBullet>());
                     //Debug.Log("Bullet");
                 }
                 audioSource.PlayOneShot(shootSound);
