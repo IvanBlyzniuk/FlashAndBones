@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf77af3f91567c41b116d9789c2ef47, type: 3}
-  m_Name: NewUpgrade
+  m_Script: {fileID: 11500000, guid: 8637c96ba84f1474bbf2d34726aa8d57, type: 3}
+  m_Name: MoreHP
   m_EditorClassIdentifier: 
   upgradeName: 
-  description: Nothing to say about this upgrade. It does nothing.
-  image: {fileID: 21300000, guid: 4771dd30d97188d44b96f88d24cecf78, type: 3}
-  levels:
-  - vampirizm: 0
+  description: 
+  image: {fileID: 0}
+  levels: []

@@ -1,7 +1,7 @@
 ﻿using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
+namespace App.Upgrades.ConcreteUpgrades.UpdatableStrategy.PlayerUpgrades
 {
     [System.Serializable]
     public struct HpRegenRateUpgradeLevel
