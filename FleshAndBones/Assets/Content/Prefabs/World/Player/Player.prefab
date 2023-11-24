@@ -591,7 +591,12 @@ MonoBehaviour:
   hpUpdateEvent: {fileID: 5061811497870888188}
   dieEvent: {fileID: 2605365171042487237}
   countUpdatedEvent: {fileID: 7737450001583816537}
-  stepSounds: []
+  stepSounds:
+  - {fileID: 8300000, guid: 981c33995f489014ab4d1c8bc88464bd, type: 3}
+  - {fileID: 8300000, guid: a316c17862df30743a664589652b3f55, type: 3}
+  - {fileID: 8300000, guid: 99cf2e6ab26abb14ba0ad1ddcc474e91, type: 3}
+  - {fileID: 8300000, guid: a8777d015c4876a4d9b080576340adb3, type: 3}
+  - {fileID: 8300000, guid: f386d8fa26901a94094e032ba6904a36, type: 3}
 --- !u!50 &7442631325693813448
 Rigidbody2D:
   serializedVersion: 4

@@ -103,7 +103,7 @@ MonoBehaviour:
   shootEvent: {fileID: 365114257145832917}
   shootPosition: {fileID: 1514799663055865315}
   data: {fileID: 11400000, guid: 3cd0aa60245e5c3479013f1f5b11570b, type: 2}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 10e9122de6123204580a483a6bbc360d, type: 3}
 --- !u!82 &9125935562553738545
 AudioSource:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
