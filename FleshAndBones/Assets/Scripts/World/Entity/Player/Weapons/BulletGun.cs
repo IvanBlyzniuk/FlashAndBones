@@ -9,6 +9,13 @@ namespace App.World.Entity.Player.Weapons
         
         public override void Shoot()
         {
+            float spread = UnityEngine.Random.Range(-bulletSpread, bulletSpread);
+            Quaternion rotation = Quaternion.Euler(ShootPosition.eulerAngles.x, ShootPosition.eulerAngles.y, ShootPosition.eulerAngles.z + spread);
+            ShootInDirection(rotation);
+        }
+
+        public void ShootInDirection(Quaternion rotation)
+        {
             if (timeFromCoolDown > coolDown)
             {
                 BaseBullet bulletScript = bulletPrefab.GetComponent<BaseBullet>();
@@ -19,12 +26,10 @@ namespace App.World.Entity.Player.Weapons
                 }
                 for (int i = 0; i < bulletCount; i++)
                 {
-                    float spread = UnityEngine.Random.Range(-bulletSpread, bulletSpread);
-                    Quaternion rotation = Quaternion.Euler(ShootPosition.eulerAngles.x, ShootPosition.eulerAngles.y, ShootPosition.eulerAngles.z + spread);
                     GameObject bullet = objectPool.GetObjectFromPool(bulletScript.PoolObjectType, bulletPrefab, ShootPosition.position).GetGameObject();
                     bullet.transform.rotation = rotation;
                     bullet.transform.position = ShootPosition.position;
-                    bullet.GetComponent<BaseBullet>().Init(damage,PearcingCount);
+                    bullet.GetComponent<BaseBullet>().Init(damage, PearcingCount);
                     bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletFlySpeed;
                     OnBulletSpawned?.Invoke(bullet.GetComponent<BaseBullet>());
                     //Debug.Log("Bullet");
