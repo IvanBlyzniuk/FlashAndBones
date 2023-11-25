@@ -17,3 +17,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 5f51c6468ea114c448c0562ae05c6188, type: 3}
   levels:
   - accuracy: 1
+  - accuracy: 1
+  - accuracy: 1
