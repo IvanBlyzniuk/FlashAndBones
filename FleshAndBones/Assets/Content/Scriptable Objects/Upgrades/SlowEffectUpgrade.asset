@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e1fa14e8839a04ba5ff142ab2cd39e, type: 3}
   m_Name: SlowEffectUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Frost bullets
+  description: Your bullets can slow down enemies
+  image: {fileID: -1408807363, guid: 48dfe7b4781ee984e8649ea882324ac5, type: 3}
+  levels:
+  - slowMultiplier: 0.025
+    slowDuration: 0.48

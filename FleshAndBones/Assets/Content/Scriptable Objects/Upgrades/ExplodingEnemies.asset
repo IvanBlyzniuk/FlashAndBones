@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Exploding Enemies
   description: 'Gives a little chance for the enemies to explode '
-  image: {fileID: 21300000, guid: 3106fce013def9e4388ee263a592d29e, type: 3}
+  image: {fileID: 251692523, guid: 3106fce013def9e4388ee263a592d29e, type: 3}
   levels:
   - explosionChance: 1
     timeToLive: 0.613

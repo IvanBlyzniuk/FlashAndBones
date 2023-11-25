@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d5fe5fa462f1d4cb85eb10931fa652, type: 3}
   m_Name: PlayerSpeedUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Speed Up
+  description: You run faster
+  image: {fileID: -1476165783, guid: 16cc1ab47ffe6834ea6426f9ff7c09bd, type: 3}
+  levels:
+  - speedMultiplier: 1.07

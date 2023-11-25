@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Regeneration
   description: Gradually regenerates your HP.
-  image: {fileID: 21300000, guid: f30f89ba20f5a54408989f43f29f358d, type: 3}
+  image: {fileID: 463153694, guid: f30f89ba20f5a54408989f43f29f358d, type: 3}
   levels:
   - hpRegenRateAddent: 5
     period: 1

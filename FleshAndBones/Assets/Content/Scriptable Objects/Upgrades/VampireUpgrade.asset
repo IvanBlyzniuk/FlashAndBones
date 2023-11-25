@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0a62d19bd6d6e4aa064659021792e4, type: 3}
   m_Name: VampireUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Vampirism
+  description: Damaging enemies heals you
+  image: {fileID: 1291162028, guid: 3f5fe6b8313dbd546a25bc5f6c60f680, type: 3}
+  levels:
+  - lifeStealPercentage: 0.1

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MoreHP
   m_EditorClassIdentifier: 
   upgradeName: Max HP
-  description: 
-  image: {fileID: 21300000, guid: 746a6e3f996a42f4c84dc184b2aaee89, type: 3}
+  description: Increases your max health
+  image: {fileID: 1397771086, guid: 746a6e3f996a42f4c84dc184b2aaee89, type: 3}
   levels:
   - maxHP: 150
   - maxHP: 200

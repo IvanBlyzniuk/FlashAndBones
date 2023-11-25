@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe2defb0121f0742b2cc9f699bedb39, type: 3}
   m_Name: HealingChanceUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: More healings
+  description: Healings drop more often
+  image: {fileID: 1079108765, guid: e1a087ffa361b5e4fbc9ad27b09e78e6, type: 3}
+  levels:
+  - additionalDropChance: 0.01

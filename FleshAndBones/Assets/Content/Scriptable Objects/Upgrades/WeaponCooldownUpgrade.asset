@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387a462c4992be945adf188243c55239, type: 3}
   m_Name: WeaponCooldownUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Shoot speed
+  description: You can shoot more often
+  image: {fileID: -1692285145, guid: d9ad12ef60817104696a80274c9b9cf9, type: 3}
+  levels:
+  - cooldownReductionMultiplier: 0.013

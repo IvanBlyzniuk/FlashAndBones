@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: BurningBullets
   description: Makes your bullets burn.
-  image: {fileID: 21300000, guid: 806707555813b844b9d03dc43571f1e3, type: 3}
+  image: {fileID: 1643900749, guid: 806707555813b844b9d03dc43571f1e3, type: 3}
   levels:
   - burningHitCount: 5
     burningDamage: 10

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AccuracyUpgrade
   m_EditorClassIdentifier: 
   upgradeName: Accuracy
-  description: Increases the chance of shooting an enemy.
-  image: {fileID: 21300000, guid: 5f51c6468ea114c448c0562ae05c6188, type: 3}
+  description: Reduces bullet spread
+  image: {fileID: -1008037113, guid: 5f51c6468ea114c448c0562ae05c6188, type: 3}
   levels:
   - accuracy: 0
   - accuracy: 0.498

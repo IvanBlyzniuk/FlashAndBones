@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Dodge
   description: Increases the chance of dodge.
-  image: {fileID: 21300000, guid: 9385758b05dbe5d4b83d2b227715eacd, type: 3}
+  image: {fileID: -1456691969, guid: 9385758b05dbe5d4b83d2b227715eacd, type: 3}
   levels:
   - dodgeChanceIncrease: 1

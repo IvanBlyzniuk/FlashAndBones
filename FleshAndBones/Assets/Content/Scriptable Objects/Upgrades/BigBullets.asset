@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigBullets
   m_EditorClassIdentifier: 
   upgradeName: Big Bullets
-  description: Makes your bullets big
-  image: {fileID: 21300000, guid: 8be59a9dcfdb7834fa4362be340ef54c, type: 3}
+  description: Makes your bullets bigger!
+  image: {fileID: 1197669588, guid: 8be59a9dcfdb7834fa4362be340ef54c, type: 3}
   levels:
   - bulletScale: {x: 2, y: 2, z: 1}

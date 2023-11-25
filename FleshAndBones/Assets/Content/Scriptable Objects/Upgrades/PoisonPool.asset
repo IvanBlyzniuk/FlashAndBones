@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Poison Pool
   description: Periodically spawns posion pools under your feet.
-  image: {fileID: 21300000, guid: fe06966ef294647449e242ab2c5af8c3, type: 3}
+  image: {fileID: 920516758, guid: fe06966ef294647449e242ab2c5af8c3, type: 3}
   levels:
   - damage: 10
     hitNumber: 5
