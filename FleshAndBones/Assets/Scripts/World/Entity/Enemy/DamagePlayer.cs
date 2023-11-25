@@ -27,13 +27,6 @@ public class DamagePlayer : MonoBehaviour
                 collisionHealth.TakeDamage(damage);
                 PlayHitSound();
             }
-            else
-            {
-
-                PlayDodgeEffect();
-            }
-
-
         }
         
     }
@@ -45,10 +38,5 @@ public class DamagePlayer : MonoBehaviour
             int index = Random.Range(0, hitSounds.Count);
             audioSource.PlayOneShot(hitSounds[index]);
         }
-    }
-
-    private void PlayDodgeEffect()
-    {
-        Debug.Log("Player dodged the attack!");
     }
 }

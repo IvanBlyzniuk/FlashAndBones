@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3def53673cbdc3a4b949ebda61ad0c66, type: 3}
   m_Name: AccuracyUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Accuracy
+  description: Increases the chance of shooting an enemy.
+  image: {fileID: 21300000, guid: 5f51c6468ea114c448c0562ae05c6188, type: 3}
+  levels:
+  - accuracy: 1

@@ -36,20 +36,14 @@ namespace App.World.Entity.Player.Weapons
                 ApplySlowEffect(enemy);
             }
 
-            Debug.Log($"Accuracy {accuracy} ");
             var a = (DefaultAccuracy + (1 - DefaultAccuracy) * accuracy) + Mathf.Epsilon;
             var b = UnityEngine.Random.Range(0f, 1f);
 
             if (a <= b)
             {
-                Debug.Log("Promazalo");
-                Debug.Log($"{a} <= {b}");
+                //Bullet misses
                 return;
-
-                // Bullet misses
             }
-
-
 
             Health targetHealt = collision.GetComponent<Health>();
             if (targetHealt == null)

@@ -153,8 +153,6 @@ namespace App.World.Entity.Enemy
         {
             float originalSpeed = speed;
             speed *= multiplier;
-            Debug.Log($"Original speed {originalSpeed}");
-            Debug.Log($"New speed {speed}");
             yield return new WaitForSeconds(duration);
             speed = originalSpeed;
 

@@ -37,8 +37,6 @@ namespace App.World.Entity.Player.PlayerComponents
                 currentLevel = value;
                 nextLevelExperience = value >= MaxLevel ? EXPERIENCE_WHEN_FULL_LEVEL : levels[currentLevel];
                 OnLevelUp?.CallValueUpdateEvent(prevLevel, currentLevel, MaxLevel);
-
-                Debug.Log($"Gained Level = {currentLevel}");
             }
         }
 

@@ -25,14 +25,12 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         {
             Reset(player);
             GetBulletGun(player).OnBulletSpawned += MakeBig;
-            Debug.Log("Subscribed.");
         }
 
         public void Reset(Player player) 
         {
             currentScaleMultiplier = Vector3.one;
             GetBulletGun(player).OnBulletSpawned -= MakeBig;
-            Debug.Log("Unsubscribed.");
         }
 
         public void SwitchToLevel(Player player, BigBulletsUpgradeLevel level)
