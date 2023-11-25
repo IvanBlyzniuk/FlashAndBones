@@ -5,6 +5,7 @@ using App.Upgrades;
 using App.World.UI.Events;
 using Unity.VisualScripting;
 
+
 namespace App.World.Entity.Player.PlayerComponents
 {
     #region Required
@@ -65,25 +66,27 @@ namespace App.World.Entity.Player.PlayerComponents
         private float movementSpeed;
         private int money;
         private bool isDead; //TODO replace with more global "game stop"
+
+        private float dodgeChance = 0f; //for dodging(dexterity) upgrade
         #endregion
 
         #region Properties
         public Transform ShootPosition { get => shootPosition; set => shootPosition = value; }
         public Animator PAnimator { get => pAnimator; }
-        public Transform PlayerTransform { get => playerTransform;}
-        public Transform WeaponAnchor { get => weaponAnchor;}
-        public AimEvent AimEvent { get => aimEvent;}
-        public StandEvent StandEvent { get => standEvent;}
-        public MovementEvent MovementEvent { get => movementEvent;}
+        public Transform PlayerTransform { get => playerTransform; }
+        public Transform WeaponAnchor { get => weaponAnchor; }
+        public AimEvent AimEvent { get => aimEvent; }
+        public StandEvent StandEvent { get => standEvent; }
+        public MovementEvent MovementEvent { get => movementEvent; }
         public ValueUpdateEvent HPUpdateEvent { get => hpUpdateEvent; }
         public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
         public int Money { get => money; set { money = value; countUpdatedEvent.CallCountUpdatedEvent(value); } }
         public Health Health { get => health; set => health = value; }
         public GameObject CurWeaponObj { get => curWeaponObj; set => curWeaponObj = value; }
         public Transform WeaponPoint { get => weaponPoint; set => weaponPoint = value; }
-        public Weapon Weapon 
-        { 
-            get => weapon; 
+        public Weapon Weapon
+        {
+            get => weapon;
             set
             {
                 upgradeManager.DisableAll();
@@ -143,6 +146,12 @@ namespace App.World.Entity.Player.PlayerComponents
         public void DisableUpgrade(IUpgradeAbstractVisitor upgrade)
         {
             throw new System.NotImplementedException();
+        }
+
+        public float DodgeChance
+        {
+            get => dodgeChance;
+            set => dodgeChance = Mathf.Clamp01(value); // for dexterity upgarde
         }
 
         public void MakeStepSound()

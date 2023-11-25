@@ -24,6 +24,7 @@ namespace App.World.Entity.Enemy
         private Animator animator;
         private SpriteRenderer spriteRenderer;
 
+
         [SerializeField]
         private Rigidbody2D myRigidbody;
         [SerializeField]
@@ -40,6 +41,7 @@ namespace App.World.Entity.Enemy
         protected StateMachine stateMachine;
         protected BaseEnemyState attackState;
         protected ObjectPool objectPool;
+        private float speed;
 
         public Transform Target => target;
         public Rigidbody2D MyRigidbody => myRigidbody;
@@ -47,6 +49,7 @@ namespace App.World.Entity.Enemy
         public FollowState FollowState => followState;
         public BaseEnemyState AttackState => attackState;
         public Animator Animator => animator;
+        public float Speed => speed;
         public List<Collider2D> MyColliders => myColliders;
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         public AudioSource AudioSource => audioSource;
@@ -62,16 +65,17 @@ namespace App.World.Entity.Enemy
             stateMachine = new StateMachine();
             followState = new FollowState(this, stateMachine);
             spawningState = new SpawningState(this, stateMachine);
-            dieState = new DieState(this,stateMachine);
+            dieState = new DieState(this, stateMachine);
+            speed = EnemyData.speed;
         }
 
         void Update()
         {
-            if(initialised)
+            if (initialised)
                 stateMachine.CurrentState.Update();
         }
 
-        public virtual void Init(Vector3 position,Transform target, IWaveSystem waveSystem, float hpMultiplier)
+        public virtual void Init(Vector3 position, Transform target, IWaveSystem waveSystem, float hpMultiplier)
         {
             this.target = target;
             this.waveSystem = waveSystem;
@@ -79,11 +83,11 @@ namespace App.World.Entity.Enemy
             health.MaxHealth = enemyData.maxHealth * hpMultiplier;
             health.HealToMax();
             initialised = true;
-            if(stateMachine.CurrentState == null)
+            if (stateMachine.CurrentState == null)
                 stateMachine.Initialize(spawningState);
             else
                 stateMachine.ChangeState(spawningState);
-            if(enemyData.gruntSounds.Count > 0)
+            if (enemyData.gruntSounds.Count > 0)
                 StartCoroutine(Grunt());
         }
 
@@ -95,17 +99,17 @@ namespace App.World.Entity.Enemy
             audioSource.PlayOneShot(enemyData.gruntSounds[index]);
             while (true)
             {
-                time = Random.Range(enemyData.minTimeBetweenGrunts,enemyData.maxTimeBetweenGrunts);
+                time = Random.Range(enemyData.minTimeBetweenGrunts, enemyData.maxTimeBetweenGrunts);
                 yield return new WaitForSeconds(time);
-                index = Random.Range(0,enemyData.gruntSounds.Count);
+                index = Random.Range(0, enemyData.gruntSounds.Count);
                 audioSource.PlayOneShot(enemyData.gruntSounds[index]);
             }
-            
+
         }
 
         public void Die()
         {
-            if(stateMachine.CurrentState != dieState)
+            if (stateMachine.CurrentState != dieState)
             {
                 StopAllCoroutines();
                 stateMachine.ChangeState(dieState);
@@ -132,11 +136,28 @@ namespace App.World.Entity.Enemy
         }
         private void DropHealing()
         {
-            if (Random.value <= enemyData.healingDropChance)
+            if (DropChanceManager.ShouldDropHealing(enemyData.healingDropChance))
             {
                 GameObject healing = objectPool.GetObjectFromPool(enemyData.healingPrefab.PoolObjectType, enemyData.healingPrefab.gameObject, transform.position).GetGameObject();
                 healing.GetComponent<HealingDropItem>().Init(transform.position);
             }
+        }
+
+        public void ApplySlow(float multiplier, float duration)
+        {
+            StartCoroutine(SlowDownCoroutine(multiplier, duration));
+        }
+
+        private IEnumerator SlowDownCoroutine(float multiplier, float duration)
+        {
+            float originalSpeed = speed;
+            speed *= multiplier;
+            Debug.Log($"Original speed {originalSpeed}");
+            Debug.Log($"New speed {speed}");
+            yield return new WaitForSeconds(duration);
+            speed = originalSpeed;
+
+
         }
 
         public void GetFromPool(ObjectPool pool)
@@ -152,7 +173,7 @@ namespace App.World.Entity.Enemy
 
         public GameObject GetGameObject()
         {
-            return(gameObject);
+            return (gameObject);
         }
 
         public void EnableEffect(BaseStatusEffect effect)
@@ -173,4 +194,3 @@ namespace App.World.Entity.Enemy
         public int ExperienceForKill() => EnemyData.experienceForKill;
     }
 }
-
