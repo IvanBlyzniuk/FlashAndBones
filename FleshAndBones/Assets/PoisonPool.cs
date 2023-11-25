@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class PoisonPool : MonoBehaviour
 {
-    private float? period = 1f;
-    private float? damage = 5;
-    private int? hitNumber = 5;
-    private float? duration = 20;
+    private float? hitPeriod = null;
+    private float? damage = null;
+    private int? hitNumber = null;
+    private float? existenceDuration = null;
 
     private List<Health> poisonedHealths = new();
     private float timeCounter = 0f;
@@ -53,7 +53,7 @@ public class PoisonPool : MonoBehaviour
             return;
         }
 
-        if (timeCounter > duration)
+        if (timeCounter > existenceDuration)
         {
             Destroy(gameObject);
         }
@@ -63,12 +63,12 @@ public class PoisonPool : MonoBehaviour
         }
     }
 
-    public void Init(float period, float damage, int hitNumber, float duration)
+    public void Init(float hitPeriod, float damage, int hitNumber, float existenceDuration)
     {
-        this.period = period;
+        this.hitPeriod = hitPeriod;
         this.damage = damage;
         this.hitNumber = hitNumber;
-        this.duration = duration;
+        this.existenceDuration = existenceDuration;
     }
 
     private IEnumerator ApplyPoisoningEffect(Health health)
@@ -77,7 +77,7 @@ public class PoisonPool : MonoBehaviour
         {
             Debug.Log("Hit");
             health.TakeDamage(damage.Value);
-            yield return new WaitForSeconds(period.Value);
+            yield return new WaitForSeconds(hitPeriod.Value);
         }
 
         poisonedHealths.Remove(health);
@@ -86,5 +86,5 @@ public class PoisonPool : MonoBehaviour
     private bool IsPoisoned(Health health) => poisonedHealths.Find(h => h == health) != null;
 
     private bool IsInitialized() 
-        => period != null && damage != null && hitNumber != null && duration != null;
+        => hitPeriod != null && damage != null && hitNumber != null && existenceDuration != null;
 }
