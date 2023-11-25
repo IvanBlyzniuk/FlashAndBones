@@ -28,6 +28,10 @@ MonoBehaviour:
   healingPrefab: {fileID: 4350639347114633194, guid: 237d3dce2e3abef4da7cfcff04588693, type: 3}
   minTimeBetweenGrunts: 10
   maxTimeBetweenGrunts: 15
-  gruntSounds: []
-  attackSounds: []
+  gruntSounds:
+  - {fileID: 8300000, guid: 1695643c35f3a2b4e8376b6d201ea243, type: 3}
+  - {fileID: 8300000, guid: ffbd0908e235f3f46a9193117ffe002f, type: 3}
+  - {fileID: 8300000, guid: 7d4ab07d577f1524daa9fe08d2fddc78, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: 5b6538d3d211f8d4b94012c39030ec49, type: 3}
   experienceForKill: 10

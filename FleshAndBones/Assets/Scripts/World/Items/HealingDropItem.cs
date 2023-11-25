@@ -18,7 +18,7 @@ namespace App.World.Items
         
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            collision.gameObject.GetComponent<Player>().Health.Heal(healing);
+            collision.gameObject.GetComponentInParent<Player>().Health.Heal(healing);
             objectPool.ReturnToPool(this);
         }
     }

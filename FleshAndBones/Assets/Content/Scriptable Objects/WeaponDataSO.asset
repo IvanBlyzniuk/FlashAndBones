@@ -19,4 +19,4 @@ MonoBehaviour:
   pearcingCount: 0
   bullet: {fileID: 4156934671588399941, guid: 4ddbbda352636bf47b0fc32ad3fda8ed, type: 3}
   bulletCount: 1
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 10e9122de6123204580a483a6bbc360d, type: 3}
