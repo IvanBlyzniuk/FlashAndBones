@@ -10,42 +10,36 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         [Range(0f, 1f)] public float accuracy;
     }
 
-    [CreateAssetMenu(fileName = "AccuracyUpgrade", menuName = "Scriptable Objects/Upgrades/AccuracyUpgrade")]
+    [CreateAssetMenu(fileName = "Accuracy", menuName = "Scriptable Objects/Upgrades/AccuracyUpgrade")]
     public class AccuracyUpgrade : StandardUpgradeScriptableObject<Player, AccuracyUpgradeLevel>
     {
-        public AccuracyUpgrade() : base(new PlayerAccuracyUpgradeStrategy()) { }
+        public AccuracyUpgrade() : base(new PlayerAccuracyUpgradeStrategy()) {}
     }
 
     public class PlayerAccuracyUpgradeStrategy : IStrategy<Player, AccuracyUpgradeLevel>
     {
-        private float? initialAccuracy = null;
+        private float? initialBulletSpread = null;
 
         public void Initialize(Player player)
         {
-            if (player.Weapon != null)
-                initialAccuracy = player.Weapon.Accuracy;
+            initialBulletSpread = player.Weapon.BullerSpread;
         }
 
         public void Destroy()
         {
-            initialAccuracy = null;
+            initialBulletSpread = null;
         }
 
         public void Reset(Player player)
         {
-            if (player.Weapon != null && initialAccuracy.HasValue)
-                player.Weapon.Accuracy = initialAccuracy.Value;
-            else
-                throw new InvalidOperationException("Cannot reset via a non-initialized strategy");
+            player.Weapon.BullerSpread = initialBulletSpread
+                ?? throw new InvalidOperationException("Cannot reset via a non-initialized strategy");
         }
 
         public void SwitchToLevel(Player player, AccuracyUpgradeLevel level)
         {
-            if (player.Weapon != null)
-            {
-                Reset(player);
-                player.Weapon.Accuracy = level.accuracy;
-            }
+            Reset(player);
+            player.Weapon.BullerSpread *= (1 - level.accuracy);
         }
     }
 }
