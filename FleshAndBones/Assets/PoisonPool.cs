@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class PoisonPool : MonoBehaviour
 {
-    private float? period = 1;
-    private float? damage = 10;
-    private int? hitNumber = 5;
+    private float? hitPeriod = null;
+    private float? damage = null;
+    private int? hitNumber = null;
+    private float? existenceDuration = null;
 
     private List<Health> poisonedHealths = new();
+    private float timeCounter = 0f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,28 +35,49 @@ public class PoisonPool : MonoBehaviour
 
         var health = enemyComponent.Health;
 
-        if (!IsPoisoned(health) && gameObject.activeSelf)
+        if (gameObject.activeSelf && !IsPoisoned(health))
         {
+            poisonedHealths.Add(health);
             StartCoroutine(ApplyPoisoningEffect(health));
+        }
+        else
+        {
+            poisonedHealths.Remove(health);
         }
     }
 
-    public void Init(float period, float damage, int hitNumber)
+    private void Update()
     {
-        this.period = period;
+        if (!IsInitialized())
+        {
+            return;
+        }
+
+        if (timeCounter > existenceDuration)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            timeCounter += Time.deltaTime;
+        }
+    }
+
+    public void Init(float hitPeriod, float damage, int hitNumber, float existenceDuration)
+    {
+        this.hitPeriod = hitPeriod;
         this.damage = damage;
         this.hitNumber = hitNumber;
+        this.existenceDuration = existenceDuration;
     }
 
     private IEnumerator ApplyPoisoningEffect(Health health)
     {
-        poisonedHealths.Add(health);
-
         for (int i = 0; i < hitNumber; ++i)
         {
             Debug.Log("Hit");
             health.TakeDamage(damage.Value);
-            yield return new WaitForSeconds(period.Value);
+            yield return new WaitForSeconds(hitPeriod.Value);
         }
 
         poisonedHealths.Remove(health);
@@ -62,5 +85,6 @@ public class PoisonPool : MonoBehaviour
 
     private bool IsPoisoned(Health health) => poisonedHealths.Find(h => h == health) != null;
 
-    private bool IsInitialized() => period != null && damage != null && hitNumber != null;
+    private bool IsInitialized() 
+        => hitPeriod != null && damage != null && hitNumber != null && existenceDuration != null;
 }

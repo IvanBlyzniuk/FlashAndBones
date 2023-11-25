@@ -10,6 +10,7 @@ namespace App.VFX
     public class Explosion : MonoBehaviour, IObjectPoolItem
     {
         public string PoolObjectType => "Explosion";
+        [SerializeField]
         private ObjectPool pool;
         private float damage;
         private PolygonCollider2D damageZone;
@@ -42,6 +43,10 @@ namespace App.VFX
         {
             if (!gameObject.activeSelf)
                 return;
+            if (collision.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+            {
+                return;
+            }
             Health targetHealt = collision.GetComponent<Health>();
             if (targetHealt == null)
             {
@@ -54,9 +59,9 @@ namespace App.VFX
         public IEnumerator Explode(float time)
         {
             explosionParticles.Play();
-            explosionSound.Play();
+            //explosionSound.Play();
             yield return new WaitForSeconds(time);
-            pool.ReturnToPool(this);
+            Destroy(this);
         }
     }
 

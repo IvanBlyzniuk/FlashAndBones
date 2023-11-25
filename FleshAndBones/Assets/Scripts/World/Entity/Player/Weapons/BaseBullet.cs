@@ -20,6 +20,10 @@ namespace App.World.Entity.Player.Weapons
         protected SlowEffectInfo slowEffect;
         public string PoolObjectType => poolObjectType;
 
+        public event Action<BaseBullet, BaseEnemy> OnBulletHit;
+
+        public float PearcingCount => pearcingCount;
+
         public virtual void OnTriggerEnter2D(Collider2D collision)
         {
             if (!gameObject.activeSelf)
@@ -46,11 +50,15 @@ namespace App.World.Entity.Player.Weapons
             //}
 
             Health targetHealt = collision.GetComponent<Health>();
+
             if (targetHealt == null)
             {
                 return;
             }
+
             targetHealt.TakeDamage(damage);
+            OnBulletHit?.Invoke(this, enemy);
+
             if (lifeStealAmount != null)
             {
                 float lifeSteal = damage * lifeStealAmount.lifeStealAmount;

@@ -115,13 +115,19 @@ namespace App.World.Entity
                     toDelete.Add(spriteRenderer);
             }
             yield return new WaitForSeconds(blinkTime);
+            RemoveBlinkingColor();
+            blinkRoutine = null;
+        }
+
+        private void RemoveBlinkingColor()
+        {
             foreach (SpriteRenderer spriteRenderer in spriteRenderers.Keys)
             {
                 if (spriteRenderer != null)
                     spriteRenderer.color = spriteRenderers[spriteRenderer];
             }
-            blinkRoutine = null;
         }
+
         private void Blink()
         {
             if (blinkRoutine != null)
@@ -133,7 +139,15 @@ namespace App.World.Entity
                 spriteRenderers.Remove(spriteRenderer);
             }
             toDelete.Clear();
-            blinkRoutine = StartCoroutine(BlinkCoroutine());
+
+            if (gameObject.activeSelf)
+            {
+                blinkRoutine = StartCoroutine(BlinkCoroutine());
+            }
+            else
+            {
+                RemoveBlinkingColor();
+            }
         }
     }
 }

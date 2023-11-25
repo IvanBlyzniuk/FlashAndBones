@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9561fd17fd0af354eb7a67ae845c9f82, type: 3}
   m_Name: DexterityUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
-  levels: []
+  upgradeName: Dodge
+  description: Increases the chance of dodge.
+  image: {fileID: 21300000, guid: 9385758b05dbe5d4b83d2b227715eacd, type: 3}
+  levels:
+  - dodgeChanceIncrease: 1

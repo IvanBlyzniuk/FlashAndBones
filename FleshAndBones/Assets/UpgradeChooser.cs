@@ -42,9 +42,13 @@ public class UpgradeChooser : MonoBehaviour
 
     public void Appear()
     {
+        if (upgradesList.Count == 0)
+        {
+            return;
+        }
+
         pauser.enabled = false;
         SetNextUpgrades();
-        //Show(view);
         view.GetComponent<Animator>().Play("Appear");
         SubscribeEvents();
         StopTime();
@@ -53,14 +57,9 @@ public class UpgradeChooser : MonoBehaviour
     public void Disappear()
     {
         pauser.enabled = true;
-        //Hide(view);
         view.GetComponent<Animator>().Play("Disappear");
         RenewTime();
     }
-
-    private void Show(GameObject go) => go.SetActive(true);
-
-    private void Hide(GameObject go) => go.SetActive(false);
 
     private void StopTime()
     {
@@ -100,6 +99,9 @@ public class UpgradeChooser : MonoBehaviour
     {
         if (upgradesList.Count == 0)
         {
+            item1.CurrentUpgrade = null;
+            item2.CurrentUpgrade = null;
+            item3.CurrentUpgrade = null;
             return;
         }
 
@@ -108,6 +110,7 @@ public class UpgradeChooser : MonoBehaviour
             item1.CurrentUpgrade = upgradesList[0];
             item2.CurrentUpgrade = null;
             item3.CurrentUpgrade = null;
+            return;
         }
 
         if (upgradesList.Count == 2)
@@ -115,6 +118,7 @@ public class UpgradeChooser : MonoBehaviour
             item1.CurrentUpgrade = upgradesList[0];
             item2.CurrentUpgrade = upgradesList[1];
             item3.CurrentUpgrade = null;
+            return;
         }
 
         if (upgradesList.Count >= 3)
@@ -127,6 +131,7 @@ public class UpgradeChooser : MonoBehaviour
             item1.CurrentUpgrade = upgrade1;
             item3.CurrentUpgrade = upgrade2;
             item2.CurrentUpgrade = upgrade3;
+            return;
         }
     }
 
