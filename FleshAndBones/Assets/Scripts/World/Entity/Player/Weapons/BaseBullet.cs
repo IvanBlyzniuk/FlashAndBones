@@ -39,11 +39,11 @@ namespace App.World.Entity.Player.Weapons
             var a = (DefaultAccuracy + (1 - DefaultAccuracy) * accuracy) + Mathf.Epsilon;
             var b = UnityEngine.Random.Range(0f, 1f);
 
-            if (a <= b)
-            {
-                //Bullet misses
-                return;
-            }
+            //if (a <= b)
+            //{
+            //    //Bullet misses
+            //    return;
+            //}
 
             Health targetHealt = collision.GetComponent<Health>();
             if (targetHealt == null)
