@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f4d84726c7c30429645c6a78c5971f, type: 3}
-  m_Name: HPRegenRate
+  m_Script: {fileID: 11500000, guid: 8637c96ba84f1474bbf2d34726aa8d57, type: 3}
+  m_Name: MoreHP
   m_EditorClassIdentifier: 
-  upgradeName: Regeneration
-  description: Gradually regenerates your HP.
-  image: {fileID: 21300000, guid: f30f89ba20f5a54408989f43f29f358d, type: 3}
+  upgradeName: Max HP
+  description: 
+  image: {fileID: 21300000, guid: 746a6e3f996a42f4c84dc184b2aaee89, type: 3}
   levels:
-  - hpRegenRateAddent: 5
-    period: 1
+  - maxHP: 150
+  - maxHP: 200
+  - maxHP: 300

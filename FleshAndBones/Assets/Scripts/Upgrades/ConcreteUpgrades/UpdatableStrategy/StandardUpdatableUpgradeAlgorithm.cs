@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using App.Upgrades.ConcreteUpgrades.StandardStrategy;
+using System.Collections.Generic;
 
-namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
+namespace App.Upgrades.ConcreteUpgrades.UpdatableStrategy
 {
     public class StandardUpdatableUpgradeAlgorithm<UpgradableEntity, LevelType>
         : IUpgradeVisitor<UpgradableEntity>

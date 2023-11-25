@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf77af3f91567c41b116d9789c2ef47, type: 3}
-  m_Name: NewUpgrade
+  m_Script: {fileID: 11500000, guid: 1987539a804de05489eb404d830db77e, type: 3}
+  m_Name: DamageUp
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: Nothing to say about this upgrade. It does nothing.
-  image: {fileID: 21300000, guid: 4771dd30d97188d44b96f88d24cecf78, type: 3}
+  upgradeName: Damage Up
+  description: Increases damage
+  image: {fileID: 21300000, guid: 2861ca1eabbfe4a44b2c62a88ea117e0, type: 3}
   levels:
-  - vampirizm: 0
+  - damageIncrease: 10
+  - damageIncrease: 20
+  - damageIncrease: 30

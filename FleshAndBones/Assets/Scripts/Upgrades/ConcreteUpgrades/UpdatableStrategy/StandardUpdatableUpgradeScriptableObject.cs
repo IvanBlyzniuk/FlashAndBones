@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace App.Upgrades.ConcreteUpgrades.StandardStrategy
+namespace App.Upgrades.ConcreteUpgrades.UpdatableStrategy
 {
     public class StandardUpdatableUpgradeScriptableObject<UpgradableEntity, LevelType> 
         : BaseUpgradeScriptableObject<UpgradableEntity>

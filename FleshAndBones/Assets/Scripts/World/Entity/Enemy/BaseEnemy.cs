@@ -54,6 +54,7 @@ namespace App.World.Entity.Enemy
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         public AudioSource AudioSource => audioSource;
         public DieEvent OnDied => dieEvent;
+        public Health Health => health;
 
         public virtual string PoolObjectType => enemyData.type;
 

@@ -58,7 +58,7 @@ namespace App.World.Entity.Player.Weapons
         public float BulletFlySpeed { get => bulletFlySpeed; set => bulletFlySpeed = value; }
         public Transform ShootPosition { get => shootPosition; set => shootPosition = value; }
         public WeaponSO Data { get => data; set => data = value; }
-        protected int PearcingCount { get => pearcingCount; set => pearcingCount = value; }
+        public int PearcingCount { get => pearcingCount; set => pearcingCount = value; }
 
         public LifeStealInfo LifeStealAmount
         {
