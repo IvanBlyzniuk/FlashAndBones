@@ -51,6 +51,7 @@ namespace App.Systems.Wave
 
         public IEnumerator AddEnemyWithDelay(BaseEnemy enemy, float delay)
         {
+            Debug.Log(enemy.PoolObjectType + " " + delay);
             yield return new WaitForSeconds(delay);
             enemiesToAdd.Add(enemy);
         }
@@ -77,23 +78,32 @@ namespace App.Systems.Wave
                     enemiesToAdd.Clear();
                     CalculateEnemyWeights();
                 }
-                SpawnSubWave();
+                //SpawnSubWave();
+                float dangerLevelLeft = subWaveDangerLevel;
+                while (dangerLevelLeft > 0)
+                {
+                    BaseEnemy randomEnemy = getRandomEnemy();
+                    enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + enemyHpMultiplier);
+                    dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
+                    yield return new WaitForSeconds(0.1f);
+                }
+                //
                 subWaveDangerLevel *= 1 + subWaveSizeIncrease;
                 enemyHpMultiplier *= 1 + enemyHpIncrease;
                 yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
             }
         }
 
-        private void SpawnSubWave()
-        {
-            float dangerLevelLeft = subWaveDangerLevel;
-            while (dangerLevelLeft > 0)
-            {
-                BaseEnemy randomEnemy = getRandomEnemy();
-                enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + enemyHpMultiplier);
-                dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
-            }
-        }
+        //private void SpawnSubWave()
+        //{
+        //    float dangerLevelLeft = subWaveDangerLevel;
+        //    while (dangerLevelLeft > 0)
+        //    {
+        //        BaseEnemy randomEnemy = getRandomEnemy();
+        //        enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + enemyHpMultiplier);
+        //        dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
+        //    }
+        //}
 
         private BaseEnemy getRandomEnemy()
         {

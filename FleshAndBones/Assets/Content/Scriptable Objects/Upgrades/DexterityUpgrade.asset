@@ -16,4 +16,8 @@ MonoBehaviour:
   description: Increases the chance of dodge.
   image: {fileID: -1456691969, guid: 9385758b05dbe5d4b83d2b227715eacd, type: 3}
   levels:
-  - dodgeChanceIncrease: 1
+  - dodgeChanceIncrease: 0.12
+  - dodgeChanceIncrease: 0.24
+  - dodgeChanceIncrease: 0.36
+  - dodgeChanceIncrease: 0.48
+  - dodgeChanceIncrease: 0.6

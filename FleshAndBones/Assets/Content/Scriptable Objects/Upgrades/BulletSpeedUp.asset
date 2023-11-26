@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Makes your bullets fly faster
   image: {fileID: 1281634405, guid: e89d204b98653e94394fcad48b298ee2, type: 3}
   levels:
-  - bulletFlySpeedMultiplier: 2.23
-  - bulletFlySpeedMultiplier: 4.71
-  - bulletFlySpeedMultiplier: 7.51
+  - bulletFlySpeedMultiplier: 2
+  - bulletFlySpeedMultiplier: 3
+  - bulletFlySpeedMultiplier: 4
+  - bulletFlySpeedMultiplier: 5
+  - bulletFlySpeedMultiplier: 6

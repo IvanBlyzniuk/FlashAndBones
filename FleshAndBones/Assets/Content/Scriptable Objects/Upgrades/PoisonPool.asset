@@ -16,9 +16,21 @@ MonoBehaviour:
   description: Periodically spawns posion pools under your feet.
   image: {fileID: 920516758, guid: fe06966ef294647449e242ab2c5af8c3, type: 3}
   levels:
-  - damage: 10
+  - damage: 5
     hitNumber: 5
     hitPeriod: 2
     appearancePeriod: 2
     existanceDuration: 10
+    poisonPoolPrefab: {fileID: 2258975573831735821, guid: f43925027bafb9f40a32204a5bc434f7, type: 3}
+  - damage: 7
+    hitNumber: 5
+    hitPeriod: 2
+    appearancePeriod: 2
+    existanceDuration: 10
+    poisonPoolPrefab: {fileID: 2258975573831735821, guid: f43925027bafb9f40a32204a5bc434f7, type: 3}
+  - damage: 10
+    hitNumber: 7
+    hitPeriod: 2
+    appearancePeriod: 2
+    existanceDuration: 14
     poisonPoolPrefab: {fileID: 2258975573831735821, guid: f43925027bafb9f40a32204a5bc434f7, type: 3}

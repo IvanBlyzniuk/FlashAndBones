@@ -7,7 +7,10 @@ namespace App.World.Entity.Player.PlayerComponents
 {
     public class Level : MonoBehaviour
     {
-        [SerializeField] private List<int> levels;
+        [SerializeField] private int maxLevel;
+        [SerializeField] private int initialExpPerLevel;
+        [SerializeField] private int expPerLevelIncrement;
+        //[SerializeField] private List<int> levels;
         [SerializeField] private ValueUpdateEvent onExperienceGained;
         [SerializeField] private ValueUpdateEvent onLevelUp;
 
@@ -20,7 +23,7 @@ namespace App.World.Entity.Player.PlayerComponents
         public ValueUpdateEvent OnExperienceGained => onExperienceGained;
         public ValueUpdateEvent OnLevelUp => onLevelUp;
 
-        public int MaxLevel => levels.Count;
+        public int MaxLevel => maxLevel;
 
         public int CurrentLevel
         {
@@ -35,17 +38,18 @@ namespace App.World.Entity.Player.PlayerComponents
 
                 int prevLevel = currentLevel;
                 currentLevel = value;
-                nextLevelExperience = value >= MaxLevel ? EXPERIENCE_WHEN_FULL_LEVEL : levels[currentLevel];
+                //nextLevelExperience = value >= MaxLevel ? EXPERIENCE_WHEN_FULL_LEVEL : levels[currentLevel];
+                nextLevelExperience = value >= MaxLevel ? EXPERIENCE_WHEN_FULL_LEVEL : currentLevel * expPerLevelIncrement + initialExpPerLevel;
                 OnLevelUp?.CallValueUpdateEvent(prevLevel, currentLevel, MaxLevel);
             }
         }
 
         private void Awake()
         {
-            if (levels.Count == 0)
-            {
-                throw new ArgumentException("There must be more than 0 levels set.");
-            }
+            //if (levels.Count == 0)
+            //{
+            //    throw new ArgumentException("There must be more than 0 levels set.");
+            //}
 
             currentExperience = 0;
         }

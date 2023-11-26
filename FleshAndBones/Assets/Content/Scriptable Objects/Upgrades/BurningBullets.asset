@@ -17,5 +17,5 @@ MonoBehaviour:
   image: {fileID: 1643900749, guid: 806707555813b844b9d03dc43571f1e3, type: 3}
   levels:
   - burningHitCount: 5
-    burningDamage: 10
+    burningDamage: 3
     hitPeriod: 1

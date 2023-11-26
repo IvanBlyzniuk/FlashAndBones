@@ -16,5 +16,13 @@ MonoBehaviour:
   description: Gradually regenerates your HP.
   image: {fileID: 463153694, guid: f30f89ba20f5a54408989f43f29f358d, type: 3}
   levels:
-  - hpRegenRateAddent: 5
+  - hpRegenRateAddent: 0.5
+    period: 1
+  - hpRegenRateAddent: 1
+    period: 1
+  - hpRegenRateAddent: 1.5
+    period: 1
+  - hpRegenRateAddent: 2
+    period: 1
+  - hpRegenRateAddent: 2.5
     period: 1

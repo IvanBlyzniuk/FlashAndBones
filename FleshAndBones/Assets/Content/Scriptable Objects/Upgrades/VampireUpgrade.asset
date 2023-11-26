@@ -16,4 +16,8 @@ MonoBehaviour:
   description: Damaging enemies heals you
   image: {fileID: 1291162028, guid: 3f5fe6b8313dbd546a25bc5f6c60f680, type: 3}
   levels:
-  - lifeStealPercentage: 0.1
+  - lifeStealPercentage: 0.01
+  - lifeStealPercentage: 0.02
+  - lifeStealPercentage: 0.03
+  - lifeStealPercentage: 0.04
+  - lifeStealPercentage: 0.05

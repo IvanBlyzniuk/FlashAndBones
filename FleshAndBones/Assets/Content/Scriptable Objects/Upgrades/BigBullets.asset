@@ -16,4 +16,8 @@ MonoBehaviour:
   description: Makes your bullets bigger!
   image: {fileID: 1197669588, guid: 8be59a9dcfdb7834fa4362be340ef54c, type: 3}
   levels:
+  - bulletScale: {x: 1.5, y: 1.5, z: 1}
   - bulletScale: {x: 2, y: 2, z: 1}
+  - bulletScale: {x: 2.5, y: 2.5, z: 1}
+  - bulletScale: {x: 3, y: 3, z: 1}
+  - bulletScale: {x: 3.5, y: 3.5, z: 1}

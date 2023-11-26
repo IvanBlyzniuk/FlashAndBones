@@ -16,5 +16,13 @@ MonoBehaviour:
   description: Your bullets can slow down enemies
   image: {fileID: -1408807363, guid: 48dfe7b4781ee984e8649ea882324ac5, type: 3}
   levels:
-  - slowMultiplier: 0.025
-    slowDuration: 0.48
+  - slowMultiplier: 0.1
+    slowDuration: 0.1
+  - slowMultiplier: 0.2
+    slowDuration: 0.2
+  - slowMultiplier: 0.3
+    slowDuration: 0.3
+  - slowMultiplier: 0.4
+    slowDuration: 0.4
+  - slowMultiplier: 0.5
+    slowDuration: 0.5

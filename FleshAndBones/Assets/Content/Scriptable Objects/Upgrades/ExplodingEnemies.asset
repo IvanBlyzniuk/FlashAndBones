@@ -16,7 +16,23 @@ MonoBehaviour:
   description: 'Gives a little chance for the enemies to explode '
   image: {fileID: 251692523, guid: 3106fce013def9e4388ee263a592d29e, type: 3}
   levels:
-  - explosionChance: 1
-    timeToLive: 0.613
+  - explosionChance: 0.05
+    timeToLive: 0.6
+    damage: 10
+    explosionPrefab: {fileID: 1892208672243371177, guid: ee0187b1557199e4bbd95fd69481a880, type: 3}
+  - explosionChance: 0.1
+    timeToLive: 0.6
+    damage: 10
+    explosionPrefab: {fileID: 1892208672243371177, guid: ee0187b1557199e4bbd95fd69481a880, type: 3}
+  - explosionChance: 0.15
+    timeToLive: 0.6
+    damage: 10
+    explosionPrefab: {fileID: 1892208672243371177, guid: ee0187b1557199e4bbd95fd69481a880, type: 3}
+  - explosionChance: 0.2
+    timeToLive: 0.6
+    damage: 10
+    explosionPrefab: {fileID: 1892208672243371177, guid: ee0187b1557199e4bbd95fd69481a880, type: 3}
+  - explosionChance: 0.25
+    timeToLive: 0.6
     damage: 10
     explosionPrefab: {fileID: 1892208672243371177, guid: ee0187b1557199e4bbd95fd69481a880, type: 3}

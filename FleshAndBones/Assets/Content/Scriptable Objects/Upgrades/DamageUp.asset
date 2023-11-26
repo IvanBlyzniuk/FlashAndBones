@@ -16,5 +16,13 @@ MonoBehaviour:
   description: Increases damage
   image: {fileID: 452277791, guid: 2861ca1eabbfe4a44b2c62a88ea117e0, type: 3}
   levels:
+  - damageIncrease: 5
   - damageIncrease: 10
+  - damageIncrease: 15
   - damageIncrease: 20
+  - damageIncrease: 25
+  - damageIncrease: 30
+  - damageIncrease: 35
+  - damageIncrease: 40
+  - damageIncrease: 45
+  - damageIncrease: 50

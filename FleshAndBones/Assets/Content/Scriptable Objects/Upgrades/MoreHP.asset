@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Increases your max health
   image: {fileID: 1397771086, guid: 746a6e3f996a42f4c84dc184b2aaee89, type: 3}
   levels:
+  - maxHP: 125
   - maxHP: 150
+  - maxHP: 175
   - maxHP: 200
-  - maxHP: 300
+  - maxHP: 250

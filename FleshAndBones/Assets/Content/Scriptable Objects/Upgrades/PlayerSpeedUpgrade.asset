@@ -16,4 +16,5 @@ MonoBehaviour:
   description: You run faster
   image: {fileID: -1476165783, guid: 16cc1ab47ffe6834ea6426f9ff7c09bd, type: 3}
   levels:
-  - speedMultiplier: 1.07
+  - speedMultiplier: 1.1
+  - speedMultiplier: 1.2

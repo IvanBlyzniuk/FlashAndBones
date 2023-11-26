@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73b438949dae3c49a5db8d3778dec90, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  type: Acid Slime
+  type: Skeleton
   maxHealth: 25
   dangerLevel: 15
   spawnStartTime: 90

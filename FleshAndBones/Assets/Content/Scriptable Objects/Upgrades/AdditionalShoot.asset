@@ -16,4 +16,8 @@ MonoBehaviour:
   description: Shoots in random direction periodically
   image: {fileID: 626852661, guid: c4265b067417dd946936e2bfe16bc4d6, type: 3}
   levels:
-  - period: 0.3
+  - period: 1
+  - period: 0.8
+  - period: 0.6
+  - period: 0.4
+  - period: 0.2

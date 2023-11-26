@@ -16,4 +16,8 @@ MonoBehaviour:
   description: You can shoot more often
   image: {fileID: -1692285145, guid: d9ad12ef60817104696a80274c9b9cf9, type: 3}
   levels:
-  - cooldownReductionMultiplier: 0.013
+  - cooldownReductionMultiplier: 0.1
+  - cooldownReductionMultiplier: 0.2
+  - cooldownReductionMultiplier: 0.3
+  - cooldownReductionMultiplier: 0.4
+  - cooldownReductionMultiplier: 0.5

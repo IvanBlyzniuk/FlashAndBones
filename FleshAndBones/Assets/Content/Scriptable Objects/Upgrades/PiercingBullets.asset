@@ -18,3 +18,6 @@ MonoBehaviour:
   levels:
   - piercingCountIncrease: 1
   - piercingCountIncrease: 2
+  - piercingCountIncrease: 3
+  - piercingCountIncrease: 4
+  - piercingCountIncrease: 5

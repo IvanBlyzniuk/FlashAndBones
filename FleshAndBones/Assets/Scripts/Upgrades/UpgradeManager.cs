@@ -103,7 +103,7 @@ namespace App.Upgrades
             {
                 return upgradeToLevelUp;
             }
-            else if (upgrades.TryGetValue(upgrade.GetType(), out IUpgradeAbstractVisitor updatableUpgradeToLevelUp))
+            else if (updatableUpdates.TryGetValue(upgrade.GetType(), out IUpdatableUpgradeVisitor updatableUpgradeToLevelUp))
             {
                 return updatableUpgradeToLevelUp;
             }

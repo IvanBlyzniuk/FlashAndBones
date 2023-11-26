@@ -17,3 +17,7 @@ MonoBehaviour:
   image: {fileID: 1079108765, guid: e1a087ffa361b5e4fbc9ad27b09e78e6, type: 3}
   levels:
   - additionalDropChance: 0.01
+  - additionalDropChance: 0.02
+  - additionalDropChance: 0.03
+  - additionalDropChance: 0.04
+  - additionalDropChance: 0.05
