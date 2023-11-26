@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealth: 25
   dangerLevel: 8
   spawnStartTime: 30
-  speed: 2
+  speed: 1
   damage: 10
   timeBetweenAttacks: 0.875
   healingDropChance: 0.05
